@@ -31,7 +31,7 @@ function onListChanged()
 	
 	local nodeChar = getDatabaseNode().getParent();
 	window.unlocks.setValue(CharManagerMothership.getUnlockedSkillList(nodeChar));
-	
+
 	onSkillsChanged();
 end
 

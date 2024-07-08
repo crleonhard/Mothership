@@ -142,7 +142,7 @@ function getUnlockedSkillList(nodeChar)
 	-- if not nodeList then
 		-- nodeList = resolveRefNode("skill");
 	-- end
-	local nodeList = resolveRefNode("reference.skilldata", "skill");
+	local nodeList = resolveRefNode("reference.skilldata@*", "skill@*");
 	if nodeList then
 		local aUnlocks = { ["Trained"] = { }, ["Expert"] = { }, ["Master"] = { }};
 		for _,vSkill in pairs(nodeList.getChildren()) do
@@ -184,7 +184,7 @@ function getAvailableSkills(nodeChar, sRankFilter, bIgnorePrerequisites)
 	-- if not nodeList then
 		-- nodeList = resolveRefNode("skill");
 	-- end
-	local nodeList = resolveRefNode("reference.skilldata", "skill");
+	local nodeList = resolveRefNode("reference.skilldata@*", "skill");
 	local aAvailableSkills = { };
 	if nodeList then
 		for _,vSkill in pairs(nodeList.getChildren()) do
@@ -278,7 +278,7 @@ function getSkillNode(sSkill)
 			-- return nil;
 		-- end
 	-- end
-	local nodeList = resolveRefNode("reference.skilldata", "skill");
+	local nodeList = resolveRefNode("reference.skilldata@*", "skill");
 	if not nodeList then
 		return nil;
 	end
