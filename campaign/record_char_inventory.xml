@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<windowclass name="charsheet_inventory" merge="join">
+		<sheetdata>
+			<frame_char name="inventoryframe">
+				<!-- <bounds>15,0,-29,-45</bounds> -->
+				<bounds>28,10,-45,-75</bounds>
+			</frame_char>
+
+			<label name="weight_label" merge="delete" />
+
+			<list_charinv name="inventorylist" merge="join">
+				<anchored to="inventoryframe">
+					<bottom offset="-60" />
+				</anchored>
+			</list_charinv>
+
+			<label name="armorpoints_label">
+				<anchored to="inventoryframe" position="insidebottomleft" offset="10,10" />
+				<static textres="ARMOR" />
+			</label>
+			<number_stat name="armorpoints" source="armorpoints">
+				<anchored to="inventoryframe" position="insidebottomleft" offset="110,10" width="60" height="20" />
+				<readonly />
+			</number_stat>
+
+			<!-- <label name="damagereduction_label"> -->
+				<!-- <anchored to="inventoryframe" position="insidebottomleft" offset="10,10" /> -->
+				<!-- <static textres="DR" /> -->
+			<!-- </label> -->
+			<!-- <number_stat name="damagereduction" source="damagereduction"> -->
+				<!-- <anchored to="inventoryframe" position="insidebottomleft" offset="110,10" width="60" height="20" /> -->
+				<!-- <readonly /> -->
+			<!-- </number_stat> -->
+
+			<!-- <number_stat name="armorpoints" source="armorpoints"> -->
+				<!-- <anchored to="inventoryframe" position="insidebottomleft" offset="10,15" width="60" height="30" /> -->
+				<!-- <target>armorpoints</target> -->
+				<!-- <readonly /> -->
+			<!-- </number_stat> -->
+			<!-- <label_abilityscore> -->
+				<!-- <anchored to="armorpoints" /> -->
+				<!-- <static textres="ARMOR" /> -->
+			<!-- </label_abilityscore> -->
+
+			<frame_char name="encumbranceframe" merge="delete" />
+			<simplenumber name="encumbranceload" merge="delete" />
+			<label name="encumbrance_label" merge="delete" />
+
+			<frame_char name="creditsframe">
+				<!-- <bounds>15,-45,-29,60</bounds> -->
+				<bounds>28,-70,-45,60</bounds>
+			</frame_char>
+			<!-- <label name="credits_label"> -->
+				<!-- <anchored to="creditsframe" position="insidetopleft" offset="10,10" /> -->
+				<!-- <static textres="char_label_credits" /> -->
+			<!-- </label> -->
+			<string_label_inline name="credits_label">
+				<anchored to="creditsframe" position="insideleft" offset="10, 0" height="" />
+				<static textres="char_label_credits" />
+				<default>CR</default>
+			</string_label_inline>		
+			<!-- <number_dropadd name="credits" source="credits"> -->
+				<!-- <anchored to="creditsframe" position="insidetopleft" offset="155,10" width="55" height="20" /> -->
+			<!-- </number_dropadd> -->
+			<number_charcredits name="credits" source="credits.cr">
+				<anchored>
+					<left offset="0" />
+				</anchored>
+				<target>credits.cr</target>
+			</number_charcredits>
+			<label_abilityscore>
+				<anchored to="credits" />
+				<static textres="CR" />
+			</label_abilityscore>
+			<number_charcredits name="kcr" source="credits.kcr">
+				<target>credits.kcr</target>
+			</number_charcredits>
+			<label_abilityscore>
+				<anchored to="kcr" />
+				<static textres="KCR" />
+			</label_abilityscore>
+			<number_charcredits name="mcr" source="credits.mcr">
+				<target>credits.mcr</target>
+			</number_charcredits>
+			<label_abilityscore>
+				<anchored to="mcr" />
+				<static textres="MCR" />
+			</label_abilityscore>
+			<number_charcredits name="bcr" source="credits.bcr">
+				<target>credits.bcr</target>
+			</number_charcredits>
+			<label_abilityscore>
+				<anchored to="bcr" />
+				<static textres="BCR" />
+			</label_abilityscore>
+
+			<frame_char name="coinframe" merge="delete" />
+			<label_frametop name="coin_label" merge="delete" />
+			<!-- <number_dropadd name="coinamount1" merge="delete" /> -->
+			<!-- <stringu name="coinname1" merge="delete" /> -->
+			<!-- <number_dropadd name="coinamount2" merge="delete" /> -->
+			<!-- <stringu name="coinname2" merge="delete" /> -->
+			<!-- <number_dropadd name="coinamount3" merge="delete" /> -->
+			<!-- <stringu name="coinname3" merge="delete" /> -->
+			<!-- <number_dropadd name="coinamount4" merge="delete" /> -->
+			<!-- <stringu name="coinname4" merge="delete" /> -->
+			<!-- <number_dropadd name="coinamount5" merge="delete" /> -->
+			<!-- <stringu name="coinname5" merge="delete" /> -->
+			<!-- <number_dropadd name="coinamount6" merge="delete" /> -->
+			<!-- <stringu name="coinname6" merge="delete" /> -->
+			<!-- <basicstring name="coinother" merge="delete" /> -->
+			<sub_charcurrency name="sub_currency" merge="delete" />
+			<scrollbar_sub_charcurrency name="scrollbar_currency" merge="delete" />
+			<button_iadd_sub_charcurrency name="currency_iadd" merge="delete" />
+			<button_iedit_sub_charcurrency name="currency_iedit" merge="delete" />
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="char_invitem" merge="join">
+		<sheetdata>
+			<number_charinv name="weight" merge="delete" />
+			<string_charinvloc name="location">
+				<tabtarget prev="nonid_name" />
+			</string_charinvloc>
+		</sheetdata>
+	</windowclass>
+
+</root>

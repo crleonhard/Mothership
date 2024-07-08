@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root merge="join">
+
+	<template name="frame_ctbox_host_header_toggles">
+		<frame_ct name="header_toggles">
+			<!-- <anchored to="headeranchor" height="35" width="115"> -->
+			<anchored to="headeranchor" height="35" width="95">
+				<top offset="-9" />
+				<!-- <right offset="-13" /> -->
+				<right offset="-0" />
+			</anchored>
+		</frame_ct>
+	</template>
+
+	<template name="string_ctname">
+		<string_ct>
+			<anchored height="20">
+				<top parent="active_spacer_top" anchor="bottom"  relation="relative" offset="10" />
+				<left parent="token" anchor="right" offset="5" />
+				<right parent="combat" anchor="left" relation="relative" offset="-10" />
+			</anchored>
+			<tabtarget next="initresult" />
+			<script file="ct/scripts/ct_name.lua" />
+		</string_ct>
+	</template>
+
+	<template name="number_ct_crosslink_mothership">
+		<number_ct_crosslink>
+			<readonly />
+			<rollable />
+			<nolinkwidget />
+			<script file="ct/scripts/number_crosslink_mothership.lua" />
+		</number_ct_crosslink>
+	</template>
+
+	<template name="string_clientct_name">
+		<stringu name="name">
+			<anchored height="20">
+				<top parent="active_spacer_top" anchor="bottom" relation="relative" offset="10" />
+				<left parent="token" anchor="right" offset="5" />
+				<right parent="wounds" anchor="left" relation="relative" offset="-10" />
+			</anchored>
+			<readonly />
+		</stringu>
+	</template>
+
+	<template name="button_ct_zeroinit">
+		<buttoncontrol>
+			<anchored width="33" height="26">
+				<bottom offset="-19" />
+				<left parent="contentanchor" offset="95" />
+			</anchored>
+			<icon normal="button_zeroinit" pressed="button_zeroinit_down" />
+			<tooltip textres="ct_menu_zeroinit" />
+			<script>
+				function onButtonPress()
+					for _, vChild in pairs(window.list.getWindows()) do
+						local sTurn = vChild.initresult.getValue();
+						vChild.initresult.setValue('0');
+					end
+				end
+			</script>
+		</buttoncontrol>
+	</template>
+
+	<template name="button_ct_rerollinit">
+		<buttoncontrol>
+			<anchored width="33" height="26">
+				<bottom offset="-19" />
+				<left parent="contentanchor" offset="125" />
+			</anchored>
+			<icon normal="button_rerollinit" pressed="button_rerollinit_down" />
+			<tooltip textres="ct_menu_rerollinit" />
+			<script >
+				function onButtonPress()
+					CombatManager2.resetInit();
+				end
+			</script>
+		</buttoncontrol>
+	</template>
+
+	<template name="button_ctentry_health">
+		<button_iconcycler>
+			<anchored width="12" height="22" />
+			<parameters>
+				<icons>nowound|smallwound|mediumwound|largewound|fatalwound</icons>
+				<values>nowound|smallwound|mediumwound|largewound|fatalwound</values>
+				<tooltips>Healthy|Injured|Wounded|Heavily Wounded|Down</tooltips>
+				<defaulttooltip>Wound Status</defaulttooltip>
+				<defaulticon>nowound</defaulticon>
+			</parameters>
+			<gmeditonly />
+		</button_iconcycler>
+	</template>
+
+	<template name="button_cycler_cover">
+		<button_stringcycler>
+			<parameters>
+				<defaultlabelres mergerule="replace">dash</defaultlabelres>
+				<labelsres>insignificantcover|lightcover|heavycover</labelsres>
+				<values>5|10|20</values>
+			</parameters>
+		</button_stringcycler>
+	</template>
+
+	<template name="stringw">
+		<stringfield>
+			<!-- <font>smallheadertext</font> -->
+			<font>boxlightfont</font>
+			<!-- <lineoffset default="on" mergerule="replace">2</lineoffset> -->
+			<color>FFFFFF</color>
+		</stringfield>
+	</template>
+
+	<!-- template for editable column headings using Small (8pt) Font, Underlined, Black -->
+	<template name="stringb">
+		<stringfield>
+			<!-- <font>smallheadertext</font> -->
+			<font>boxlightfont</font>
+			<!-- <lineoffset default="on" mergerule="replace">2</lineoffset> -->
+			<color>000000</color>
+		</stringfield>
+	</template>
+
+</root>
+

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+	<windowclass name="ship" copy="record_window_tabbed">
+		<placement>
+			<size width="400" height="450" />
+		</placement>
+		<sizelimits>
+			<minimum width="400" height="450" />
+			<dynamic />
+		</sizelimits>
+		<tab>
+			<name>main</name>
+			<resource>tab_main</resource>
+			<class>ship_main</class>
+			<embed />
+		</tab>
+		<tab merge="add">
+			<name>combat</name>
+			<resource>tab_combat</resource>
+			<class>ship_combat</class>
+			<embed />
+		</tab>
+		<tab merge="add">
+			<name>systems</name>
+			<resource>tab_systems</resource>
+			<class>ship_systems</class>
+			<embed />
+		</tab>
+		<tab merge="add">
+			<name>notes</name>
+			<resource>tab_notes</resource>
+			<class>record_content_notes</class>
+			<embed />
+		</tab>
+	</windowclass>
+
+	<windowclass name="ship_header" copy="record_header" />
+
+	<windowclass name="ship_main">
+		<margins control="0,0,0,2" />
+		<script file="campaign/scripts/ship_main.lua" />
+		<sheetdata>
+			<anchor_column name="columnanchor" />
+			
+			<label_column name="classification_label">
+				<static textres="ship_label_classification" />
+			</label_column>
+			<string_column name="classification" />
+
+			<label_column name="captain_label">
+				<static textres="ship_label_captain" />
+			</label_column>
+			<string_column name="captain" />
+
+			<label_column name="crew_label">
+				<static textres="ship_label_crew" />
+			</label_column>
+			<number_column name="crew" />
+
+			<label_column_right name="maxcrew_label">
+				<anchored to="crew" />
+				<static textres="ship_label_maxcrew" />
+			</label_column_right>
+			<number_column_right name="maxcrew">
+				<anchored to="crew" />
+			</number_column_right>
+
+			<label_column name="transponder_label">
+				<static textres="ship_label_transponder" />
+			</label_column>
+			<button_checkbox_column name="transponder" />
+
+			<line_column name="divider" />
+			
+			<label_column name="thrusters_label">
+				<static textres="ship_label_thrusters" />
+			</label_column>
+			<number_npcstat name="thrusters" />
+
+			<label_column name="battle_label">
+				<static textres="ship_label_battle" />
+			</label_column>
+			<number_npcstat name="battle" />
+
+			<label_column name="systems_label">
+				<static textres="ship_label_systems" />
+			</label_column>
+			<number_npcstat name="systems" />
+
+			<line_column name="divider2" />
+
+			<label_column name="fuel_label">
+				<static textres="ship_label_fuel" />
+			</label_column>
+			<number_column name="fuel" />
+
+			<label_column_right name="maxfuel_label">
+				<anchored to="fuel" />
+				<static textres="ship_label_maxfuel" />
+			</label_column_right>
+			<number_column_right name="maxfuel">
+				<anchored to="fuel" />
+			</number_column_right>
+
+			<label_column name="o2_label">
+				<static textres="ship_label_o2" />
+			</label_column>
+			<number_column name="o2" />
+
+			<label_column_right name="warpcores_label">
+				<anchored to="o2" />
+				<static textres="ship_label_warpcores" />
+			</label_column_right>
+			<number_column_right name="warpcores">
+				<anchored to="o2" />
+			</number_column_right>
+			
+			<label_column name="cryopods_label">
+				<static textres="ship_label_cryopods" />
+			</label_column>
+			<number_column name="cryopods" />
+
+			<label_column_right name="escapepods_label">
+				<anchored to="cryopods" />
+				<static textres="ship_label_escapepods" />
+			</label_column_right>
+			<number_column_right name="escapepods">
+				<anchored to="cryopods" />
+			</number_column_right>
+		</sheetdata>
+	</windowclass>
+	<windowclass name="ship_combat">
+		<margins control="0,0,0,2" />
+		<script file="campaign/scripts/ship_combat.lua" />
+		<sheetdata>
+			<anchor_column name="columnanchor" />
+
+			<line_column />
+			<label_column name="conditionheader_label">
+				<static textres="ship_label_conditionheader" />
+				<center />
+			</label_column>
+			<line_column>
+				<anchored>
+					<top offset="34" />
+				</anchored>
+			</line_column>
+
+			<label_column name="hullpoints_label">
+				<static textres="ship_label_hullpoints" />
+			</label_column>
+			<number_column name="hullpoints" />
+
+			<label_column_right name="mdmg_label">
+				<anchored to="hullpoints" />
+				<static textres="ship_label_mdmg" />
+			</label_column_right>
+			<number_column_right name="mdmg">
+				<anchored to="hullpoints" />
+			</number_column_right>
+
+			<label_column name="mdmgeffects_label">
+				<static textres="ship_label_mdmgeffects" />
+			</label_column>
+			<string_columnh name="mdmgeffects" />
+
+			<line_column />
+			<label_column name="weaponsheader_label">
+				<static textres="ship_label_weaponsheader" />
+				<center />
+			</label_column>
+			<line_column>
+				<anchored>
+					<top offset="34" />
+				</anchored>
+			</line_column>
+
+			<label_column name="megadamage_label">
+				<static textres="ship_label_megadamage" />
+			</label_column>
+			<string_columnh name="megadamage" />
+
+			<label_column name="installedhardpoints_label">
+				<static textres="ship_label_installedhardpoints" />
+			</label_column>
+			<number_column name="installedhardpoints" />
+
+			<label_column_right name="maxhardpoints_label">
+				<anchored to="installedhardpoints" />
+				<static textres="ship_label_maxhardpoints" />
+			</label_column_right>
+			<number_column_right name="maxhardpoints">
+				<anchored to="installedhardpoints" />
+			</number_column_right>
+
+			<label_column name="weapons_label">
+				<static textres="ship_label_weapons" />
+			</label_column>
+			<string_columnh name="weapons" />
+		</sheetdata>
+	</windowclass>
+	<windowclass name="ship_systems">
+		<margins control="0,0,0,2" />
+		<script file="campaign/scripts/ship_systems.lua" />
+		<sheetdata>
+			<anchor_column name="columnanchor" />
+
+			<line_column />
+			<label_column name="upgradesheader_label">
+				<static textres="ship_label_upgradesheader" />
+				<center />
+			</label_column>
+			<line_column>
+				<anchored>
+					<top offset="34" />
+				</anchored>
+			</line_column>
+
+			<label_column name="installedupgrades_label">
+				<static textres="ship_label_installedupgrades" />
+			</label_column>
+			<number_column name="installedupgrades" />
+
+			<label_column_right name="maxupgrades_label">
+				<anchored to="installedupgrades" />
+				<static textres="ship_label_maxupgrades" />
+			</label_column_right>
+			<number_column_right name="maxupgrades">
+				<anchored to="installedupgrades" />
+			</number_column_right>
+
+			<label_column name="upgrades_label">
+				<static textres="ship_label_upgrades" />
+			</label_column>
+			<string_columnh name="upgrades" />
+
+			<line_column />
+			<label_column name="repairsheader_label">
+				<static textres="ship_label_repairsheader" />
+				<center />
+			</label_column>
+			<line_column>
+				<anchored>
+					<top offset="34" />
+				</anchored>
+			</line_column>
+
+			<label_column name="minorrepairs_label">
+				<static textres="ship_label_minorrepairs" />
+			</label_column>
+			<string_columnh name="minorrepairs" />
+
+			<label_column name="majorrepairs_label">
+				<static textres="ship_label_majorrepairs" />
+			</label_column>
+			<string_columnh name="majorrepairs" />
+
+			<line_column />
+			<label_column name="cargoheader_label">
+				<static textres="ship_label_cargoheader" />
+				<center />
+			</label_column>
+			<line_column>
+				<anchored>
+					<top offset="34" />
+				</anchored>
+			</line_column>
+
+			<string_columnh_full name="cargo" />
+		</sheetdata>
+	</windowclass>
+</root>

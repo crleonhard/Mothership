@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<windowclass name="charsheet">
+		<frame>charsheet</frame>
+		<placement>
+			<size width="550" height="740" />
+		</placement>
+		<sizelimits>
+			<!--<maximum width="625" />-->
+			<minimum width="550" height="700" />
+			<maximum width="550" height="700" />
+			<minimum width="550" height="700" />
+			<dynamic />
+		</sizelimits>
+		<minimize>minimized_npc</minimize>
+		<tooltip field="name" />
+		<nodelete />
+		<softclose />
+		<playercontrol />
+		<script>
+			function onInit()
+				--[[ if User.isLocal() then
+					speak.setVisible(false);
+					portrait.setVisible(false);
+					localportrait.setVisible(true);
+				end ]]
+				
+				local nodeChar = getDatabaseNode();
+				local bNew = DB.getValue(nodeChar, "health", "") == '';
+
+				if bNew then
+					--[[ initialize stats ]]
+					DB.setValue(nodeChar, "stats.strength", "number", DiceManagerMothership.getDiceResult(2, 10) + 25);
+					DB.setValue(nodeChar, "stats.speed", "number", DiceManagerMothership.getDiceResult(2, 10) + 25);
+					DB.setValue(nodeChar, "stats.intellect", "number", DiceManagerMothership.getDiceResult(2, 10) + 25);
+					DB.setValue(nodeChar, "stats.combat", "number", DiceManagerMothership.getDiceResult(2, 10) + 25);
+
+					--[[ initialize saves ]]
+					DB.setValue(nodeChar, "saves.sanity", "number", DiceManagerMothership.getDiceResult(2, 10) + 10);
+					DB.setValue(nodeChar, "saves.fear", "number", DiceManagerMothership.getDiceResult(2, 10) + 10);
+					DB.setValue(nodeChar, "saves.body", "number", DiceManagerMothership.getDiceResult(2, 10) + 10);
+					
+					--[[ initialize other values ]]
+					DB.setValue(nodeChar, "health", "number", DiceManagerMothership.getDiceResult(1, 10) + 10);
+					DB.setValue(nodeChar, "credits.cr", "number", DiceManagerMothership.getDiceResult(2, 10) * 10);
+					
+					if OptionsManager.getOption("HRTRI") == "on" then
+						--[[ random trinket ]]
+						local sTable = "Trinkets";
+						local nodeTrinkets = TableManager.findTable(sTable);
+						if nodeTrinkets then
+							local aResults = TableManager.getResults(nodeTrinkets, math.random(100) - 1, 0);
+							ItemManager.handleString(getDatabaseNode(), "TRINKET: " .. aResults[1].sText);
+						else
+							Debug.console(Interface.getString("table_error_lookupfail") .. " (" .. sTable .. ")");
+						end
+
+						--[[ random patch ]]
+						local sTable = "Patches";
+						local nodePatches = TableManager.findTable(sTable);
+						if nodePatches then
+							aResults = TableManager.getResults(nodePatches, math.random(100) - 1, 0);
+							ItemManager.handleString(getDatabaseNode(), "PATCH: " .. aResults[1].sText);
+						else
+							Debug.console(Interface.getString("table_error_lookupfail") .. " (" .. sTable .. ")");
+						end
+					end
+				end				
+			end
+		</script>
+		<sheetdata>			
+			<button_charactivate name="speak">
+				<bounds>-41,30,23,22</bounds>
+			</button_charactivate>
+		
+			<tokenfield name="token">
+				<bounds>-86,23,40,40</bounds>
+				<empty>token_empty</empty>
+				<tooltip textres="char_tooltip_token" />
+				<script>
+					function onDoubleClick(x, y)
+						CombatManager.openMap(window.getDatabaseNode());
+					end
+				</script>
+			</tokenfield>
+
+			<genericcontrol>
+				<bounds>35,23,45,45</bounds>
+				<icon>charlist_base</icon>
+				<disabled />
+			</genericcontrol>
+			<portrait_charlocal name="localportrait">
+				<bounds>35,23,45,45</bounds>
+				<invisible />
+			</portrait_charlocal>
+			<portrait_char name="portrait">
+				<bounds>35,23,45,45</bounds>
+			</portrait_char>
+			
+			<frame_char name="overviewframe">
+				<bounds>90,20,370,45</bounds>
+			</frame_char>
+			<string_labeled name="name">
+				<anchored to="overviewframe" position="insidetopleft" offset="10,10" height="20" width="150" />
+				<labelres>char_label_name</labelres>
+			</string_labeled>
+		
+			<!-- <genericcontrol>
+				<bounds>-137,21,45,45</bounds>
+				<icon>charlist_base</icon>
+				<disabled />
+			</genericcontrol>
+			<portrait_charlocal name="localportrait">
+				<bounds>-137,21,45,45</bounds>
+				<invisible />
+			</portrait_charlocal>
+			<portrait_char name="portrait">
+				<bounds>-137,21,45,45</bounds>
+			</portrait_char>
+			
+			<frame_char name="overviewframe">
+				<bounds>15,20,-140,45</bounds>
+			</frame_char>
+			<string_labeled name="name">
+				<anchored to="overviewframe" position="insidetopleft" offset="10,10" height="20" width="150" />
+				<labelres>char_label_name</labelres>
+			</string_labeled> -->
+
+			<!-- replace class with pronoun -->
+			<string_labeled name="pronoun">
+				<anchored to="name" position="right" offset="5,0" width="150" />
+				<labelres>char_label_pronoun</labelres>
+			</string_labeled>
+
+			<!-- replace class level with high score -->
+			<number_labeled name="highscore" source="highscore" >
+				<anchored to="pronoun" position="right" offset="5,0" width="30" />
+				<labelres>char_label_highscore</labelres>
+				<frame name="fieldlight_ms" offset="4,2,4,2" />
+				<!-- <readonly /> -->
+			</number_labeled>
+
+			<subwindow name="main">
+				<bounds>0,65,-1,-20</bounds>
+				<class>charsheet_main</class>
+			</subwindow>
+			<subwindow name="skills">
+				<bounds>0,65,-1,-20</bounds>
+				<class>charsheet_skills</class>
+			</subwindow>
+			<subwindow name="inventory">
+				<bounds>0,65,-1,-20</bounds>
+				<class>charsheet_inventory</class>
+			</subwindow>
+			<subwindow name="notes">
+				<bounds>0,65,-1,-20</bounds>
+				<class>charsheet_notes</class>
+			</subwindow>
+			
+			<tabs_charsheet>
+				<tab>
+					<icon>tab_main</icon>
+					<subwindow>main</subwindow>
+				</tab>
+				<tab>
+					<icon>tab_skills</icon>
+					<subwindow>skills</subwindow>
+				</tab>
+				<tab>
+					<icon>tab_inventory</icon>
+					<subwindow>inventory</subwindow>
+				</tab>
+				<tab>
+					<icon>tab_notes</icon>
+					<subwindow>notes</subwindow>
+				</tab>
+				<activate>1</activate>
+			</tabs_charsheet>
+			<!-- <helper_mc_charsheet /> -->
+		
+			<close_charsheet />
+		</sheetdata>
+	</windowclass>
+</root>

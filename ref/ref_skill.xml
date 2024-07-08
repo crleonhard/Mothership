@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<windowclass name="reference_skill" copy="record_window" />
+	<windowclass name="reference_skill_header" copy="record_header" /> 
+	
+	<windowclass name="reference_skill_main">
+		<margins control="0,0,0,2" />
+		<script>
+			function onInit()
+				if rank.getValue() == '' then
+					rank.setStringValue("Trained");
+				end
+				update();
+			end
+			function update()
+				local bReadOnly = WindowManager.getReadOnlyState(getDatabaseNode());
+				rank.setReadOnly(bReadOnly);
+				stat.setReadOnly(bReadOnly);
+				prerequisites.setReadOnly(bReadOnly);
+				text.setReadOnly(bReadOnly);
+			end
+		</script>
+		<sheetdata>
+			<anchor_column name="columnanchor" />
+
+			<label_column name="rank_label">
+				<static textres="skill_label_rank" />
+			</label_column>
+			<cycler_skillrank name="rank">
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="97" />
+					<right offset="-5" />
+				</anchored>
+			</cycler_skillrank>
+			
+			<label_column name="stat_label">
+				<static textres="skill_label_stat" />
+			</label_column>
+			<!-- <string_columnh name="stat" /> -->
+			<cycler_ability_full name="stat">
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="97" />
+					<right offset="-5" />
+				</anchored>
+			</cycler_ability_full>
+
+			<label_column name="prerequisites_label">
+				<static textres="skill_label_prerequisites" />
+			</label_column>
+			<string_columnh name="prerequisites" />
+
+			<ft_columnh name="text" />
+		</sheetdata>
+	</windowclass>
+</root>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+
+
+	<!-- Chat fonts - REQUIRED -->
+	<font name="chatfont">
+		<ttf file="graphics/fonts/JAi_____.ttf" name="JackInput" size="18" />
+		<color value="#0dff01" />
+	</font>
+	<font name="emotefont">
+		<ttf file="graphics/fonts/JAi_____.ttf" name="JackInput" size="20" />
+		<color value="#00f6ff" />
+	</font>
+	<font name="narratorfont">
+		<ttf file="graphics/fonts/JAi_____.ttf" name="JackInput" size="18" />
+		<color value="#0dff01" />
+	</font>
+	<font name="systemfont">
+		<ttf file="graphics/fonts/JAi_____.ttf" name="JackInput" size="18" />
+		<color value="#94FFA4" />
+	</font>
+	<font name="msgfont">
+		<ttf file="graphics/fonts/JAi_____.ttf" name="JackInput" size="15" />
+		<color value="#94FFA4" />
+	</font>
+	<font name="oocfont">
+		<ttf file="graphics/fonts/JAi_____.ttf" name="JackInput" size="20" />
+		<color value="#ffffff" />
+	</font>
+	
+	<!-- Chat fonts -->
+	<font name="chatnpcfont">
+		<ttf file="graphics/fonts/JAi_____.ttf" name="JackInput" size="20" />
+		<color value="#777777" />
+	</font>
+	<font name="chatgmfont">
+		<ttf file="graphics/fonts/JAi_____.ttf" name="JackInput" size="25" />
+		<color value="#555555" />
+	</font>
+	<font name="whisperfont">
+		<ttf file="graphics/fonts/JAi_____.ttf" name="JackInput" size="22" />
+		<color value="#666666" />
+	</font>
+
+	<!-- Sidebar -->
+	<!-- <font name="button_sidebar_dockitem"> -->
+		<!-- <ttf file="graphics/fonts/ap.ttf" name="Armor Piercing" size="20" /> -->
+		<!-- <color value="#ffffff" /> -->
+	<!-- </font> -->
+
+	<!-- Formatted text fields -->
+	<font name="reference-h">
+		<!-- <ttf file="graphics/fonts/MarcellusSC-Regular.ttf" name="Marcellus SC" size="24" /> -->
+		<ttf file="graphics/fonts/orbitron bold.ttf" name="Orbitron Bold" size="24" />
+		<!-- <color value="#660000" /> -->
+		<color value="#444444" />
+	</font>
+
+	<!-- used as Name Header font in record_char.xml -->
+	<font name="ArmPierce">
+		<ttf file="graphics/fonts/ap.ttf" name="Armor Piercing" size="24"/>
+		<color value="FFFEDA" />
+	</font>
+
+	<!-- <font name="SmallHeader-8"> -->
+		<!-- <fgffile name="graphics/fonts/statfont-8.fgf" /> -->
+		<!-- <color value="#444444" /> -->
+	<!-- </font> -->
+
+	<!-- Reference -->
+	<font name="reference-header">
+		<ttf file="graphics/fonts/Noto_Sans/NotoSans-Bold.ttf" name="Noto Sans Bold" size="16" />
+		<!-- <color value="#000000" /> -->
+		<color value="#FFFFFF" />
+	</font>
+
+	<!-- Windows -->
+	<font name="windowtitle">
+		<ttf file="graphics/fonts/ap.ttf" name="Armor Piercing" size="22" />
+		<color value="#FFFFFF" />
+		<shadow offset="2,3" color="#000000" />
+	</font>
+
+	<font name="boxlightfont">
+		<!-- <fgffile name="graphics/fonts/regular-10.fgf" /> -->
+		<ttf file="graphics/fonts/Candara.ttf" name="Candara SDF" size="15" />
+		<color value="#eeeeee" />
+	</font>
+
+</root>

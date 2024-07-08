@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+    <!-- Fonts -->
+	<!-- NOTE: Color must be set via DesktopManager.setDockCategoryTextColor and DesktopManager.setDockTextColor functions -->
+    <font name="sidebar_dock_category">
+        <!-- <ttf file="graphics/fonts/Noto_Sans/NotoSans-Bold.ttf" name="Noto Sans Bold" size="18" /> -->
+		<!-- <ttf file="graphics/fonts/ap.ttf" name="Armor Piercing" size="18" /> -->
+		<ttf file="graphics/fonts/closeness.ttf" name="Closeness" size="18" />
+        <color value="#FFFFFF" />
+    </font>
+	<font name="sidebar_dock_entry">
+		<!-- <ttf file="graphics/fonts/Noto_Sans/NotoSans-Bold.ttf" name="Noto Sans Bold" size="18" /> -->
+		<!-- <ttf file="graphics/fonts/ap.ttf" name="Armor Piercing" size="18" /> -->
+		<ttf file="graphics/fonts/closeness.ttf" name="Closeness" size="18" />
+		<color value="#FFFFFF" />
+	</font>
+
+    <!-- Frames -->
+    <!-- <framedef name="sidebar_dock_category"> -->
+        <!-- <bitmap file="graphics/sidebar/sidebar_dock_category.png" /> -->
+		<!-- <offset>12,12,12,12</offset> -->
+    <!-- </framedef> -->
+    <!-- <framedef name="sidebar_dock_category_down"> -->
+        <!-- <bitmap file="graphics/sidebar/sidebar_dock_category_down.png" /> -->
+		<!-- <offset>12,12,12,12</offset> -->
+    <!-- </framedef> -->
+    <framedef name="sidebar_dock_entry_icon">
+		<!-- <bitmap file="graphics/sidebar/sidebar_dock_icon.png" /> -->
+		<bitmap file="graphics/frames/fielddark_ms.png" />
+		<offset>12,12,12,12</offset>
+    </framedef>
+ 	<framedef name="sidebar_dock_entry">
+		<!-- <bitmap file="graphics/sidebar/sidebar_dock_entry.png" /> -->
+		<bitmap file="graphics/frames/fielddark_ms.png" />
+		<offset>12,12,12,12</offset>
+	</framedef>
+	<framedef name="sidebar_dock_entry_down">
+		<!-- <bitmap file="graphics/sidebar/sidebar_dock_entry_down.png" /> -->
+		<bitmap file="graphics/frames/fieldlight_ms.png" />
+		<offset>12,12,12,12</offset>
+	</framedef>
+
+	<!-- NOTE: Color must be set via DesktopManager.setDockCategoryIconColor function -->
+	<!-- <icon name="sidebar_dock_category_expanded" file="graphics/sidebar/sidebar_dock_category_expanded.png" /> -->
+	<!-- <icon name="sidebar_dock_category_collapsed" file="graphics/sidebar/sidebar_dock_category_collapsed.png" /> -->
+
+	<!-- Sidebar icons -->
+	<!-- NOTE: Color must be set via DesktopManager.setDockCategoryIconColor function -->
+
+	<!-- Default -->
+	<!-- <icon name="sidebar_icon_default" file="graphics/sidebar/sidebar_icon_default.png" /> -->
+
+	<!-- CoreRPG -->
+    <icon name="sidebar_icon_link_ct" file="graphics/sidebar/sidebar_icon_battle_2.png" />
+	<icon name="sidebar_icon_link_tokenbag" file="graphics/sidebar/sidebar_icon_cpu.png" />
+	<icon name="sidebar_icon_recordtype_battle" file="graphics/sidebar/sidebar_icon_battle_2.png" />
+	<icon name="sidebar_icon_recordtype_item" file="graphics/sidebar/sidebar_icon_item_2.png" />
+	<icon name="sidebar_icon_recordtype_npc" file="graphics/sidebar/sidebar_icon_race_3.png" />
+	<icon name="sidebar_icon_recordtype_pcclass" file="graphics/sidebar/sidebar_icon_charsheet_2.png" />
+    <icon name="sidebar_icon_recordtype_quest" file="graphics/sidebar/sidebar_icon_planet.png" />
+    <icon name="sidebar_icon_recordtype_ship" file="graphics/sidebar/sidebar_icon_spaceship.png" />
+	<icon name="sidebar_icon_recordtype_treasureparcel" file="graphics/sidebar/sidebar_icon_treasureparcel_2.png" />
+
+	<!-- MoreCore -->
+	<icon name="sidebar_icon_recordtype_mc_investigator" file="graphics/sidebar/sidebar_icon_background.png" />
+	<icon name="sidebar_icon_recordtype_mc_world" file="graphics/sidebar/sidebar_icon_system.png" />
+
+</root>

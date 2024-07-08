@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+	<windowclass name="loadout_subitem" copy="item">
+		<sheetdata>
+			<button_char_inv_carried name="carried" merge="delete" />
+			<number_charinv name="weight" merge="delete" />
+			<string_charinvloc name="location" merge="delete" />
+			
+			<string_textlistitem name="damage" insertbefore="name">
+				<anchored position="insidetopleft" offset="5,2" height="20">
+					<right parent="rightanchor" anchor="left" relation="relative" offset="-5" />
+				</anchored>
+			</string_textlistitem>
+			<string_textlistitem name="usedammo" insertbefore="name">
+				<anchored position="insidetopleft" offset="5,2" height="20">
+					<right parent="rightanchor" anchor="left" relation="relative" offset="-5" />
+				</anchored>
+			</string_textlistitem>
+			<string_textlistitem name="armorpoints" insertbefore="name">
+				<anchored position="insidetopleft" offset="5,2" height="20">
+					<right parent="rightanchor" anchor="left" relation="relative" offset="-5" />
+				</anchored>
+			</string_textlistitem>
+
+		</sheetdata>
+	</windowclass>
+</root>

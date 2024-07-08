@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+	<!-- <windowclass name="item" copy="record_window"> -->
+		<!-- <minimize>minimized_item</minimize> -->
+	<!-- </windowclass> -->
+	<windowclass name="item_header" copy="record_header" /> 
+
+	<windowclass name="item_main" merge="join">
+		<script file="campaign/scripts/item_main.lua" />
+		<sheetdata>
+			<!-- <anchor_column name="columnanchor" /> -->
+
+			<label_column name="nonid_name_label" merge="delete" />
+			<string_columnh name="nonid_name" merge="delete" />
+			<label_column name="nonid_notes_label" merge="delete" />
+			<string_columnh name="nonid_notes" merge="delete" />
+			
+			<label_column name="type_label" insertbefore="divider">
+				<static textres="item_label_type" />
+			</label_column>
+			<!-- <string_columnh name="type" insertbefore="divider"> -->
+				<!-- <nohide /> -->
+				<!-- <delaykeyupdate /> -->
+				<!-- <script> -->
+					<!-- function onValueChanged() -->
+						<!-- window.update(); -->
+					<!-- end -->
+				<!-- </script> -->
+			<!-- </string_columnh> -->
+			<cycler_itemtype name="type" insertbefore="divider">
+				<script>
+					function onValueChanged()
+						window.update();
+					end
+				</script>
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="97" />
+					<right offset="-5" />
+				</anchored>
+			</cycler_itemtype>
+
+			<!-- <line_column name="divider2" /> -->
+
+			<!-- <label_column name="cost_label"> -->
+				<!-- <static textres="item_label_cost" /> -->
+			<!-- </label_column> -->
+			<!-- <string_columnh name="cost" /> -->
+
+			<label_column name="weight_label" merge="delete" />
+			<number_columnh name="weight" merge="delete" />
+
+			<label_column name="range_label" insertbefore="divider2">
+				<static textres="item_label_range" />
+			</label_column>
+			<string_columnh name="range" insertbefore="divider2" />
+			
+			<label_column name="damage_label" insertbefore="divider2">
+				<static textres="item_label_damage" />
+			</label_column>
+			<string_columnh name="damage" insertbefore="divider2" />
+
+			<label_column name="shots_label" insertbefore="divider2">
+				<static textres="item_label_shots" />
+			</label_column>
+			<string_columnh name="shots" insertbefore="divider2" />
+
+			<!-- <label_column name="usedammo_label" insertbefore="divider2"> -->
+				<!-- <static textres="item_label_usedammo" /> -->
+			<!-- </label_column> -->
+			<!-- <number_columnh name="usedammo" insertbefore="divider2" /> -->
+
+			<label_column name="crit_label" insertbefore="divider2">
+				<static textres="item_label_crit" />
+			</label_column>
+			<string_columnh name="crit" insertbefore="divider2" />
+
+			<label_column name="armorpoints_label" insertbefore="divider2">
+				<static textres="item_label_armorpoints" />
+			</label_column>
+			<number_columnh name="armorpoints" insertbefore="divider2">
+				<delaykeyupdate />
+			</number_columnh>
+
+			<label_column name="damagereduction_label" insertbefore="divider2">
+				<static textres="item_label_damagereduction" />
+			</label_column>
+			<number_columnh name="damagereduction" insertbefore="divider2">
+				<delaykeyupdate />
+			</number_columnh>
+
+			<label_column name="o2supply_label" insertbefore="divider2">
+				<static textres="item_label_o2supply" />
+			</label_column>
+			<string_columnh name="o2supply" insertbefore="divider2" />
+
+			<label_column name="speed_label" insertbefore="divider2">
+				<static textres="item_label_speed" />
+			</label_column>
+			<string_columnh name="speed" insertbefore="divider2" />
+
+			<label_column name="special_label" insertbefore="divider2">
+				<static textres="item_label_special" />
+			</label_column>
+			<string_columnh name="special" insertbefore="divider2" />
+
+			<!-- <line_column name="divider4" insertbefore="sub_subitems" /> -->
+
+			<string_columnh name="description" insertbefore="sub_subitems">
+				<anchored>
+					<left offset="5" />
+				</anchored>
+				<separator>line_desc</separator>
+				<readonly />
+			</string_columnh>
+
+			<ft_columnh name="notes" merge="delete" />
+
+ 			<!-- <sub_column name="sub_subitems" /> -->
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="item_main_subitems" merge="join">
+		<sheetdata>
+			<list_column name="subitems" merge="join">
+				<!-- <script> -->
+					<!-- function onDrop(x, y, draginfo) -->
+						<!-- Debug.console("sub_subitems.onDrop") -->
+					<!-- end -->
+				<!-- </script> -->
+			</list_column>
+			<button_iedit name="subitems_iedit" merge="join">
+				<anchored offset="-17,0" />
+			</button_iedit>
+			<button_iadd name="subitems_iadd" merge="delete" />
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="item_main_subitems_item" merge="join">
+	</windowclass>
+	
+	<windowclass name="char_currency">
+		<margins control="0,0,0,5"/>
+		<sheetdata>
+			<list_sub_charcurrency name="list">
+				<anchored position="insidetop" offset="-5,0" />	
+			</list_sub_charcurrency>
+			
+			<basicstring name="coinother">
+				<anchored to="list" position="below" offset="0,5" />
+				<multilinespacing>20</multilinespacing>
+			</basicstring>
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="char_currencyitem">
+		<margins control="0,0,0,2" />
+		<sheetdata>
+			<genericcontrol name="rightanchor">
+				<anchored height="0" width="0">
+					<top offset="2" />
+					<right />
+				</anchored>
+			</genericcontrol>
+			<button_idelete name="idelete">
+				<anchored to="rightanchor">
+					<top />
+					<right anchor="left" relation="relative" offset="0" />
+				</anchored>
+				<script>
+					function onEditModeChanged()
+						local nEdit = WindowManager.getOuterControlValue(window, "currency_iedit");
+						if nEdit ~= nil then
+							self.setVisible(nEdit == 1);
+						else
+							self.setVisible(WindowManager.getEditMode(window, "currencylist_iedit"));
+						end
+					end
+				</script>
+			</button_idelete>
+
+			<number_dropadd name="amount">
+				<anchored to="rightanchor" width="50" height="20">
+					<top />
+					<left parent="" offset="5" />
+				</anchored>
+				<description field="name" />
+				<delaykeyupdate />
+			</number_dropadd>
+
+			<string_textlistitem name="name">
+				<anchored to="rightanchor">
+					<top />
+					<left parent="amount" anchor="right" offset="10" />
+					<right anchor="left" relation="relative" offset="-5" />
+				</anchored>
+				<delaykeyupdate />
+				<nodrag />
+			</string_textlistitem>
+		</sheetdata>
+	</windowclass>
+</root>

@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<windowclass name="combattracker_host" merge="join">
+		<placement>
+			<size width="750" height="400" />
+		</placement>
+		<sizelimits>
+			<minimum width="750" height="400" />
+		</sizelimits>
+		<sheetdata>
+			<spacer_ct_host_header_buttons name="spacer_buttons_header">
+				<anchored width="110" />
+			</spacer_ct_host_header_buttons>
+
+			<label_ct_right name="label_healthbar" insertbefore="label_name">
+				<anchored width="12" />
+				<default>X</default>
+				<tooltip textres="ct_label_healthbar" />
+			</label_ct_right>
+			<label_ct_right name="label_injury" insertbefore="label_name">
+				<default>Inj</default>
+				<tooltip textres="ct_label_injury" />
+			</label_ct_right>
+			<label_ct_right name="label_health" insertbefore="label_name">
+				<default>Hlth</default>
+				<tooltip textres="ct_label_health" />
+			</label_ct_right>
+			<label_ct_right name="label_wounds" insertbefore="label_name">
+				<default>Wnd</default>
+				<tooltip textres="ct_label_wounds" />
+			</label_ct_right>
+			<label_ct_right name="label_maxwounds" insertbefore="label_name">
+				<default>MW</default>
+				<tooltip textres="ct_label_maxwounds" />
+			</label_ct_right>
+			<label_ct_right name="label_damagereduction" insertbefore="label_name">
+				<default>DR</default>
+				<tooltip textres="ct_label_damagereduction" />
+			</label_ct_right>
+			<label_ct_right name="label_armor" insertbefore="label_name">
+				<default>Arm</default>
+				<tooltip textres="ct_label_armor" />
+			</label_ct_right>
+			<label_ct_right name="label_instinct" insertbefore="label_name">
+				<default>Ins</default>
+				<tooltip textres="ct_label_instinct" />
+			</label_ct_right>
+			<label_ct_right name="label_combat" insertbefore="label_name">
+				<default>Com</default>
+				<tooltip textres="ct_label_combat" />
+			</label_ct_right>
+			
+			<label_ct_header_name name="label_name" merge="join">
+				<anchored>
+					<left parent="headeranchor" offset="30" />
+					<right parent="rightanchor" anchor="left" relation="relative" offset="-10" />
+				</anchored>
+				<left parent="token" anchor="right" offset="12" />
+			</label_ct_header_name>
+
+			<list_ctbox_host name="list">
+				<anchored>
+					<left offset="0" />
+					<right offset="5" />
+				</anchored>
+			</list_ctbox_host>
+
+			<button_ct_menu name="button_menu">
+				<bounds>220,-45,50,26</bounds>
+			</button_ct_menu>
+			
+			<button_ct_zeroinit insertbefore="button_faction_friend" />
+			<button_ct_rerollinit insertbefore="button_faction_friend">
+				<script>
+					function onInit()
+						setVisible(OptionsManager.getOption("HRSTO") == "on");
+					end
+				</script>
+			</button_ct_rerollinit>
+		</sheetdata>
+	</windowclass>
+	
+	<windowclass name="ct_entry" merge="join">
+		<script file="ct/scripts/ct_entry.lua" />
+		<sheetdata>
+			<genericcontrol name="button_section_attacks_spacer" insertbefore="button_section_effects">
+				<anchored to="rightanchor" width="20" height="0">
+					<top />
+					<right anchor="left" relation="relative" offset="0" />
+				</anchored>
+				<invisible />
+			</genericcontrol>
+			<button_ct_section name="button_section_attacks" insertbefore="button_section_effects">
+				<tooltip textres="ct_tooltip_attacks" />
+				<state icon="button_sword" merge="add" />
+				<state icon="button_sword_down" merge="add" />
+				<target>attacks</target>
+			</button_ct_section>
+
+			<button_ct_section_space name="button_section_space" merge="delete"/>
+
+			<number_ctentry_initresult name="initresult">
+				<tabtarget prev="injury" />
+			</number_ctentry_initresult>
+
+			<button_ctentry_health name="nowound" insertbefore="name">
+				<anchored to="rightanchor">
+					<top />
+					<right anchor="left" relation="relative" offset="-10" />
+				</anchored>
+			</button_ctentry_health>
+
+			<number_ct_crosslink name="injury" source="injury" insertbefore="name">
+				<anchored to="rightanchor" width="30" height="20">
+					<top />
+					<right anchor="left" relation="relative" offset="-10" />
+				</anchored>
+				<tabtarget prev="health"  next="initresult"/>
+				<min>0</min>
+				<script>
+					function update()
+						local nInjury = tonumber(getValue());
+
+						local pcdbnode = window.link.getTargetDatabaseNode();
+
+						local nodeWin = window.getDatabaseNode();
+
+						local nMaxWounds = nodeWin.getChild("maxwounds").getValue();
+						local nWounds = nodeWin.getChild("wounds").getValue();
+
+						if nWounds >= nMaxWounds then
+							nodeWin.getChild("nowound").setValue("fatalwound") 
+						elseif nWounds / nMaxWounds >= .5 then
+							nodeWin.getChild("nowound").setValue("largewound") 
+						elseif nWounds > 0 then
+							nodeWin.getChild("nowound").setValue("mediumwound") 
+						elseif nInjury > 0 then
+							nodeWin.getChild("nowound").setValue("smallwound") 
+						else
+							nodeWin.getChild("nowound").setValue("nowound")
+						end
+
+						local sClass, sRecordname = nodeWin.getChild("link").getValue();
+						if sClass == "npc" then
+							local sActor = nodeWin.getChild("name").getValue();
+							if nWounds >= nMaxWounds then 
+								local sTokenValue = nodeWin.getChild("token").getValue();
+								nodeWin.createChild("tokenoriginal").setValue("sTokenValue", token)
+								nodeWin.getChild("token").setValue("tokens/shared/dead.png");
+								local sTokenrefnode = nodeWin.getChild("tokenrefnode").getValue();
+
+								if imageinstance then
+									TokenManager.linkToken(getDatabaseNode(), imageinstance);
+								end
+							end
+						end
+					end
+				</script>
+			</number_ct_crosslink>
+		
+			<number_ct_crosslink name="health" source="health" insertbefore="name">
+				<anchored to="rightanchor" width="30" height="20">
+					<top />
+					<right anchor="left" relation="relative" offset="-10" />
+				</anchored>
+				<tabtarget prev="wounds" next="injury"/>
+				<readonly />
+			</number_ct_crosslink>
+		
+			<number_ct_crosslink name="wounds" source="wounds" insertbefore="name">
+				<anchored to="rightanchor" width="30" height="20">
+					<top />
+					<right anchor="left" relation="relative" offset="-10" />
+				</anchored>
+				<tabtarget prev="maxwounds" next="health"/>
+				<script>
+					function update()
+						local nWounds = tonumber(getValue());
+
+						local pcdbnode = window.link.getTargetDatabaseNode();
+
+						local nodeWin = window.getDatabaseNode();
+
+						local nMaxWounds = nodeWin.getChild("maxwounds").getValue();
+						local nInjury = nodeWin.getChild("injury").getValue();
+
+						if nWounds >= nMaxWounds then
+							nodeWin.getChild("nowound").setValue("fatalwound") 
+						elseif nWounds / nMaxWounds >= .5 then
+							nodeWin.getChild("nowound").setValue("largewound") 
+						elseif nWounds > 0 then
+							nodeWin.getChild("nowound").setValue("mediumwound") 
+						elseif nInjury > 0 then
+							nodeWin.getChild("nowound").setValue("smallwound") 
+						else
+							nodeWin.getChild("nowound").setValue("nowound")
+						end
+						
+						local sClass, sRecordname = nodeWin.getChild("link").getValue();
+						if sClass == "npc" then
+							local sActor = nodeWin.getChild("name").getValue();
+							if nWounds >= nMaxWounds then 
+								local sTokenValue = nodeWin.getChild("token").getValue();
+								nodeWin.createChild("tokenoriginal").setValue("sTokenValue", token)
+								nodeWin.getChild("token").setValue("tokens/shared/dead.png");
+								local sTokenrefnode = nodeWin.getChild("tokenrefnode").getValue();
+
+								if imageinstance then
+									TokenManager.linkToken(getDatabaseNode(), imageinstance);
+								end
+							end
+						end
+					end
+				</script>
+			</number_ct_crosslink>
+
+			<number_ct_crosslink name="maxwounds" source="maxwounds" insertbefore="name">
+				<anchored to="rightanchor" width="30" height="20">
+					<top />
+					<right anchor="left" relation="relative" offset="-10" />
+				</anchored>
+				<tabtarget prev="damagereduction" next="wounds"/>
+				<readonly />
+				<script>
+					function update()
+						local nMaxWounds = tonumber(getValue());
+						local nodeWin = window.getDatabaseNode();
+						local nWounds = nodeWin.getChild("wounds").getValue();
+						local nInjury = nodeWin.getChild("injury").getValue();
+
+						if nWounds >= nMaxWounds then
+							nodeWin.getChild("nowound").setValue("fatalwound") 
+						elseif nWounds / nMaxWounds >= .5 then
+							nodeWin.getChild("nowound").setValue("largewound") 
+						elseif nWounds > 0 then
+							nodeWin.getChild("nowound").setValue("mediumwound") 
+						elseif nInjury > 0 then
+							nodeWin.getChild("nowound").setValue("smallwound") 
+						else
+							nodeWin.getChild("nowound").setValue("nowound")
+						end
+					end
+				</script>
+			</number_ct_crosslink>
+
+			<number_ct_crosslink name="damagereduction" source="damagereduction" insertbefore="name">
+				<anchored to="rightanchor" width="30" height="20">
+					<top />
+					<right anchor="left" relation="relative" offset="-10" />
+				</anchored>
+				<tabtarget prev="armor" next="maxwounds"/>
+				<readonly />
+			</number_ct_crosslink>
+			
+			<number_ct_crosslink name="armor" source="armorpoints" insertbefore="name">
+				<anchored to="rightanchor" width="30" height="20">
+					<top />
+					<right anchor="left" relation="relative" offset="-10" />
+				</anchored>
+				<tabtarget prev="instinct" next="damagereduction"/>
+				<readonly />
+			</number_ct_crosslink>
+
+			<genericcontrol name="instinct_spacer" insertbefore="name">
+					<anchored to="rightanchor" width="30" height="0" offset="-10">
+						<top />
+						<right anchor="left" relation="current" />
+					</anchored>
+					<invisible />
+			</genericcontrol>
+			<number_ct_crosslink_mothership name="instinct" source="stats.instinct" insertbefore="name">
+				<anchored to="rightanchor" width="30" height="20">
+					<top />
+					<right anchor="left" relation="relative" offset="-10" />
+				</anchored>
+				<tabtarget prev="combat" next="armor" />
+				<script>
+					function action(draginfo)
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local rAction = CharManagerMothership.buildCheckAction(rActor, getName(), getValue());
+						ActionCheck.performRoll(draginfo, rActor, rAction);
+						return true;
+					end
+					function onDragStart(button, x, y, draginfo)
+						if rollable then
+							return action(draginfo);
+						end
+					end
+					function onDoubleClick(x, y)
+						if rollable then
+							return action();
+						end
+					end
+				</script>
+			</number_ct_crosslink_mothership>
+			
+			<genericcontrol name="combat_spacer" insertbefore="name">
+				<anchored to="rightanchor" width="30" height="0">
+					<top />
+					<right anchor="left" relation="current" offset="-10" />
+				</anchored>
+				<invisible />
+			</genericcontrol>
+			<number_ct_crosslink_mothership name="combat" source="stats.combat" insertbefore="name">
+				<anchored to="rightanchor" width="30" height="20">
+					<top />
+					<right anchor="left" relation="relative" offset="-10" />
+				</anchored>
+				<tabtarget prev="name" next="instinct"/>
+				<script>
+					function action(draginfo)
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local rAction = CharManagerMothership.buildCheckAction(rActor, getName(), getValue());
+						ActionCheck.performRoll(draginfo, rActor, rAction);
+						return true;
+					end
+					function onDragStart(button, x, y, draginfo)
+						if rollable then
+							return action(draginfo);
+						end
+					end
+					function onDoubleClick(x, y)
+						if rollable then
+							return action();
+						end
+					end
+				</script>
+			</number_ct_crosslink_mothership>
+
+			<string_ct name="crit" source="crit" insertbefore="name">
+				<anchored to="rightanchor" width="0" height="0">
+					<top />
+					<right anchor="left" relation="relative" />
+				</anchored>
+				<invisible />
+			</string_ct>
+
+			<string_ct_entry_name name="name" merge="join">
+				<anchored>
+					<right parent="rightanchor" anchor="left" relation="relative" offset="-10" />
+				</anchored>
+				<tabtarget next="combat" />
+			</string_ct_entry_name>
+
+			<sub_ct_section name="sub_attacks" insertbefore="summary_targets" />
+			
+			<sub_ct_section name="sub_space" merge="delete" />
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="ct_section_attacks">
+		<sheetdata>
+			<icon_ct_section name="icon_section">
+				<icon>button_sword_down</icon>
+			</icon_ct_section>
+
+			<anchor_ct_section name="anchor_section" />
+
+			<label name="attackslabel">
+				<anchored to="anchor_section" position="insidetopleft" offset="5,10"/>
+				<static textres="ct_label_attacks" />
+			</label>
+			<string_ct name="attacks">
+				<script file="campaign/scripts/npc_attack.lua" />
+				<anchored to="attackslabel" position="right" offset="5,0">
+					<right parent="anchor_section" anchor="right" offset="-10" />
+				</anchored>
+				<multilinespacing>20</multilinespacing>
+			</string_ct>
+
+			<genericcontrol name="spacer">
+				<anchored to="anchor_section" height="30">
+					<top anchor="bottom" relation="relative" />
+					<left />
+					<right />
+				</anchored>
+				<disabled />
+			</genericcontrol>
+			
+			<frame_ct_section name="frame_section">
+				<anchored>
+					<left parent="icon_section" anchor="right" offset="0" />
+					<bottom parent="spacer" offset="10" />
+				</anchored>
+			</frame_ct_section>
+		</sheetdata>
+	</windowclass>
+</root>

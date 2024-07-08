@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+	Please see the license.html file included with this distribution for 
+	attribution and copyright information.
+-->
+
+<root>
+	<windowclass name="pcclass" copy="record_window">
+		<placement>
+			<size width="500" height="400" />
+		</placement>
+		<sizelimits>
+			<minimum width="500" height="400" />
+		</sizelimits>
+	</windowclass>
+	<windowclass name="pcclass_header" copy="record_header" />
+	
+	<windowclass name="pcclass_main">
+		<margins control="0,0,0,7" />
+
+		<script>
+			function onInit()
+				update();
+			end
+			function update()
+				local bReadOnly = WindowManager.getReadOnlyState(getDatabaseNode());
+				strength.setReadOnly(bReadOnly);
+				speed.setReadOnly(bReadOnly);
+				intellect.setReadOnly(bReadOnly);
+				anystat.setReadOnly(bReadOnly);
+				sanity.setReadOnly(bReadOnly);
+				fear.setReadOnly(bReadOnly);
+				body.setReadOnly(bReadOnly);
+				maxwounds.setReadOnly(bReadOnly);
+				traumaresponse.setReadOnly(bReadOnly);
+				skills.setReadOnly(bReadOnly);
+			end
+		</script>
+		<sheetdata>
+			<anchor_column name="columnanchor" />
+
+			<string_label_inline name="stats_label">
+				<anchored to="columnanchor" position="belowleft" offset="0,20" width="60" height="30" />
+				<static textres="class_label_stats" />
+				<default>STATS</default>
+			</string_label_inline>		
+			<number_class_stat name="strength" source="statadjustments.strength">
+				<anchored>
+					<left offset="0" />
+				</anchored>
+				<target>strength</target>
+			</number_class_stat>
+			<label_abilityscore>
+				<anchored to="strength" />
+				<static textres="STRENGTH" />
+			</label_abilityscore>
+			<number_class_stat name="speed" source="statadjustments.speed">
+				<target>speed</target>
+			</number_class_stat>
+			<label_abilityscore>
+				<anchored to="speed" />
+				<static textres="SPEED" />
+			</label_abilityscore>
+			<number_class_stat name="intellect" source="statadjustments.intellect">
+				<target>intellect</target>
+			</number_class_stat>
+			<label_abilityscore>
+				<anchored to="intellect" />
+				<static textres="INTELLECT" />
+			</label_abilityscore>
+			<number_class_stat name="combat" source="statadjustments.combat">
+				<target>combat</target>
+			</number_class_stat>
+			<label_abilityscore>
+				<anchored to="combat" />
+				<static textres="COMBAT" />
+			</label_abilityscore>
+			<number_class_stat name="anystat" source="statadjustments.any">
+				<target>anystat</target>
+			</number_class_stat>
+			<label_abilityscore>
+				<anchored to="anystat" />
+				<static textres="ANY" />
+			</label_abilityscore>
+			
+			<string_label_inline name="saves_label">
+				<anchored to="stats_label" position="belowleft" offset="0,20" width="60" height="30" />
+				<static textres="class_label_saves" />
+				<default>SAVES</default>
+			</string_label_inline>
+			<number_class_save name="sanity" source="saveadjustments.sanity">
+				<anchored>
+					<left offset="0" />
+				</anchored>
+				<target>sanity</target>
+			</number_class_save>
+			<label_abilityscore>
+				<anchored to="sanity" />
+				<static textres="SANITY" />
+			</label_abilityscore>
+			<number_class_save name="fear" source="saveadjustments.fear">
+				<target>fear</target>
+			</number_class_save>
+			<label_abilityscore>
+				<anchored to="fear" />
+				<static textres="FEAR" />
+			</label_abilityscore>
+			<number_class_save name="body" source="saveadjustments.body">
+				<target>body</target>
+			</number_class_save>
+			<label_abilityscore>
+				<anchored to="body" />
+				<static textres="BODY" />
+			</label_abilityscore>
+
+			<string_label_inline name="health_label">
+				<anchored to="saves_label" position="belowleft" offset="0,20" width="60" height="30" />
+				<static textres="class_label_health" />
+				<default>HEALTH</default>
+			</string_label_inline>
+			<number_class_health name="maxwounds" source="maxwounds">
+				<anchored>
+					<left offset="0" />
+				</anchored>
+				<target>maxwounds</target>
+			</number_class_health>
+			<label_abilityscore>
+				<anchored to="maxwounds" />
+				<static textres="MAXWOUNDS" />
+			</label_abilityscore>
+
+			<string_labeled name="traumaresponse" source="traumaresponse">
+				<anchored to="health_label" position="belowleft" offset="0,20" width="400" />
+				<labelres>class_label_traumaresponse</labelres>
+				<multilinespacing>20</multilinespacing>
+			</string_labeled>
+
+			<string_labeled name="skills" source="skills">
+				<anchored to="traumaresponse" position="belowleft" offset="0,20" width="400" />
+				<labelres>class_label_skills</labelres>
+				<multilinespacing>20</multilinespacing>
+			</string_labeled>
+
+			<!-- <scrollbar_rolls name="scroll_1"> -->
+				<!-- <target>pcclass_list</target> -->
+			<!-- </scrollbar_rolls> -->
+		</sheetdata>
+	</windowclass>
+</root>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<template name="label_reftype">
+		<stringcontrol>
+			<anchored to="name" position="belowleft" offset="0,2">
+				<right parent="" offset="-25" />
+			</anchored>
+			<!-- <font>reference-subtitle</font> -->
+			<font>reference-header</font>
+			<readonly />
+			<script>
+				function onInit()
+					if getValue() == "" then
+						setVisible(false);
+					end
+				end
+			</script>
+		</stringcontrol>
+	</template>
+	
+	<template name="label_item_reftype">
+		<label_reftype />
+	</template>	
+
+	<template name="list_ref">
+		<windowlist>
+			<anchored to="contentanchor">
+				<top anchor="bottom" relation="relative" offset="20" />
+				<left />
+				<right />
+				<bottom parent="" offset="-65" />
+			</anchored>
+			<frame name="groupbox" offset="15,15,20,15" />
+			<child></child>
+			<child><backcolor>1A40301E</backcolor></child>
+			<filter control="filter" />
+			<filteron control="name" />
+		</windowlist>
+	</template>
+
+</root>

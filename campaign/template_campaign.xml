@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+
+	<!-- <template name="button_skill_reference"> -->
+		<!-- <button_text_sm> -->
+			<!-- <anchored to="buttonanchor" width="80"> -->
+				<!-- <top /> -->
+				<!-- <left anchor="right" relation="relative" offset="5" /> -->
+			<!-- </anchored> -->
+			<!-- <state textres="reference_button_skill" /> -->
+			<!-- <script> -->
+				<!-- function onButtonPress() -->
+					<!-- local w = Interface.findWindow("reference_groupedlist", "reference.skill"); -->
+					<!-- if w then -->
+						<!-- Interface.toggleWindow("reference_groupedlist", "reference.skill"); -->
+					<!-- else -->
+						<!-- w = Interface.openWindow("reference_groupedlist", "reference.skill"); -->
+						<!-- w.init({ sRecordType = "skill", sListView = "byrank" }); -->
+					<!-- end -->
+				<!-- end -->
+			<!-- </script> -->
+		<!-- </button_text_sm> -->
+	<!-- </template> -->
+
+	<template name="button_skill_reference">
+		<button_masterindex_option_view>
+			<state textres="reference_button_skill" />
+			<recordtype>skill</recordtype>
+			<recordview>byrank</recordview>
+			<recordpath>reference.skilldata</recordpath>
+		</button_masterindex_option_view>
+	</template>
+
+	<!-- <template name="button_item_armor"> -->
+		<!-- <button_text_sm> -->
+			<!-- <anchored to="buttonanchor" width="80"> -->
+				<!-- <top /> -->
+				<!-- <left anchor="right" relation="relative" offset="5" /> -->
+			<!-- </anchored> -->
+			<!-- <state textres="item_button_armor" /> -->
+			<!-- <script> -->
+				<!-- function onButtonPress() -->
+					<!-- local w = Interface.findWindow("reference_groupedlist", "reference.armor"); -->
+					<!-- if w then -->
+						<!-- Interface.toggleWindow("reference_groupedlist", "reference.armor"); -->
+					<!-- else -->
+						<!-- w = Interface.openWindow("reference_groupedlist", "reference.armor"); -->
+						<!-- w.init({ sRecordType = "item", sListView = "armor" }); -->
+					<!-- end -->
+				<!-- end -->
+			<!-- </script> -->
+		<!-- </button_text_sm> -->
+	<!-- </template> -->
+
+	<template name="button_item_armor">
+		<button_masterindex_option_view>
+			<recordtype>item</recordtype>
+			<recordview>armor</recordview>
+			<recordpath>reference.armor</recordpath>
+		</button_masterindex_option_view>
+	</template>
+
+	<!-- <template name="button_item_weapons"> -->
+		<!-- <button_text_sm> -->
+			<!-- <anchored to="buttonanchor" width="80"> -->
+				<!-- <top /> -->
+				<!-- <left anchor="right" relation="relative" offset="5" /> -->
+			<!-- </anchored> -->
+			<!-- <state textres="item_button_weapons" /> -->
+			<!-- <script> -->
+				<!-- function onButtonPress() -->
+					<!-- local w = Interface.findWindow("reference_groupedlist", "reference.weapon"); -->
+					<!-- if w then -->
+						<!-- Interface.toggleWindow("reference_groupedlist", "reference.weapon"); -->
+					<!-- else -->
+						<!-- w = Interface.openWindow("reference_groupedlist", "reference.weapon"); -->
+						<!-- w.init({ sRecordType = "item", sListView = "weapon" }); -->
+					<!-- end -->
+				<!-- end -->
+			<!-- </script> -->
+		<!-- </button_text_sm> -->
+	<!-- </template> -->
+
+	<template name="button_item_weapons">
+		<button_masterindex_option_view>
+			<recordtype>item</recordtype>
+			<recordview>weapon</recordview>
+			<recordpath>reference.weapon</recordpath>
+		</button_masterindex_option_view>
+	</template>
+
+	<!-- <template name="button_item_equipment"> -->
+		<!-- <button_text_sm> -->
+			<!-- <anchored to="buttonanchor" width="80"> -->
+				<!-- <top /> -->
+				<!-- <left anchor="right" relation="relative" offset="5" /> -->
+			<!-- </anchored> -->
+			<!-- <state textres="item_button_equipment" /> -->
+			<!-- <script> -->
+				<!-- function onButtonPress() -->
+					<!-- local w = Interface.findWindow("reference_groupedlist", "reference.equipment"); -->
+					<!-- if w then -->
+						<!-- Interface.toggleWindow("reference_groupedlist", "reference.equipment"); -->
+					<!-- else -->
+						<!-- w = Interface.openWindow("reference_groupedlist", "reference.equipment"); -->
+						<!-- w.init({ sRecordType = "item", sListView = "equipment" }); -->
+					<!-- end -->
+				<!-- end -->
+			<!-- </script> -->
+		<!-- </button_text_sm> -->
+	<!-- </template> -->
+
+	<template name="button_item_equipment">
+		<button_masterindex_option_view>
+			<recordtype>item</recordtype>
+			<recordview>equipment</recordview>
+			<recordpath>reference.equipment</recordpath>
+		</button_masterindex_option_view>
+	</template>
+
+	<!-- <template name="button_item_loadouts"> -->
+		<!-- <button_text_sm> -->
+			<!-- <anchored to="buttonanchor" width="80"> -->
+				<!-- <top /> -->
+				<!-- <left anchor="right" relation="relative" offset="5" /> -->
+			<!-- </anchored> -->
+			<!-- <state textres="item_button_loadouts" /> -->
+			<!-- <script> -->
+				<!-- function onButtonPress() -->
+					<!-- local w = Interface.findWindow("reference_groupedlist", "reference.loadout"); -->
+					<!-- if w then -->
+						<!-- Interface.toggleWindow("reference_groupedlist", "reference.loadout"); -->
+					<!-- else -->
+						<!-- w = Interface.openWindow("reference_groupedlist", "reference.loadout"); -->
+						<!-- w.init({ sRecordType = "item", sListView = "loadout" }); -->
+					<!-- end -->
+				<!-- end -->
+			<!-- </script> -->
+		<!-- </button_text_sm> -->
+	<!-- </template> -->
+
+	<template name="button_item_loadouts">
+		<button_masterindex_option_view>
+			<recordtype>item</recordtype>
+			<recordview>loadout</recordview>
+			<recordpath>reference.loadout</recordpath>
+		</button_masterindex_option_view>
+	</template>
+
+	<template name="label_abilityscore">
+		<label_fieldtop>
+			<!-- <frame name="abilityscore" /> -->
+			<frame />
+		</label_fieldtop>
+	</template>
+
+	<template name="string_label_inline">
+		<label>
+			<anchored position="lefthigh" width="100" height="20" />
+			<font>sheetlabelinline</font>
+			<static />
+			<disabled />
+			<tooltip  />
+		</label>
+	</template>
+
+	<template name="string_column_npc_remainder">
+		<basicstring>
+			<anchored position="righthigh" offset="10,0" height="20">
+				<right parent="" offset="-5" />
+			</anchored>
+		</basicstring>
+	</template>
+
+	<template name="number_labeled">
+		<basicnumber>
+			<frame mergerule="replace" name="fielddark" offset="4,2,4,2" />
+			<font>sheettext</font>
+			<lineoffset default="on">1</lineoffset>
+			<script>
+				labelwidget = nil;
+			
+				function onInit()
+					if labelres then
+						labelwidget = addTextWidget("sheetlabelinline", string.upper(Interface.getString(labelres[1])));
+					else
+						labelwidget = addTextWidget("sheetlabelinline", string.upper(label[1]));
+					end
+					if labelwidget then
+						local w,h = labelwidget.getSize();
+						labelwidget.setPosition("bottomleft", w/2, h/2-4);
+					end
+				end
+			</script>
+		</basicnumber>
+	</template>
+	
+	<template name="number_npcstat">
+		<number_column>
+			<rollable />
+			<script file="campaign/scripts/number_stat.lua" />
+		</number_column>
+	</template>
+
+	<template name="number_npcstat_right">
+		<number_column_right>
+			<rollable />
+			<script file="campaign/scripts/number_stat.lua" />
+		</number_column_right>
+	</template>
+
+	<template name="number_stat">
+		<basicnumber>
+			<default>0</default>
+			<script file="campaign/scripts/number_stat.lua" />
+		</basicnumber>
+	</template>
+
+	<template name="number_class_stat">
+		<basicnumber>
+			<anchored to="stats_label" width="60" height="30">
+				<top anchor="top" />
+				<left anchor="right" relation="relative" offset="18" />
+			</anchored>
+			<default>0</default>
+			<displaysign />
+		</basicnumber>
+	</template>
+
+	<template name="number_class_save">
+		<basicnumber>
+			<anchored to="saves_label" width="60" height="30">
+				<top anchor="top" />
+				<left anchor="right" relation="relative" offset="18" />
+			</anchored>
+			<default>0</default>
+			<displaysign />
+		</basicnumber>
+	</template>
+
+	<template name="number_class_health">
+		<basicnumber>
+			<anchored to="health_label" width="60" height="30">
+				<top anchor="top" />
+				<left anchor="right" relation="relative" offset="18" />
+			</anchored>
+			<default>0</default>
+			<!-- <displaysign /> -->
+		</basicnumber>
+	</template>
+
+</root>

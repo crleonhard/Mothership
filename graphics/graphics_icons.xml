@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<!-- <icon name="button_skills" file="graphics/sidebar/button_blank.png" /> -->
+	<!-- <icon name="button_skills_down" file="graphics/sidebar/button_blank_down.png" />	 -->
+	<icon name="button_skills" file="graphics/sidebar/button_wide_ms.png" />
+	<icon name="button_skills_down" file="graphics/sidebar/button_wide_down_ms.png" />
+
+	<icon name="nowound" file="graphics/icons/nowound.png" />
+	<icon name="smallwound" file="graphics/icons/smallwound.png" />
+	<icon name="mediumwound" file="graphics/icons/mediumwound.png" />
+	<icon name="largewound" file="graphics/icons/largewound.png" />
+	<icon name="fatalwound" file="graphics/icons/fatalwound.png" />
+
+	<!-- Common -->
+   <icon name="button_link" file="graphics/buttons/button_link.png" />
+   <icon name="button_link_down" file="graphics/buttons/button_link_down.png" />
+
+	<!-- Mothership Decal on Desktop -->
+	<!-- <icon name="desktopdecal_morecore" file="graphics/decals/mothership_decal.png" /> -->
+	<!-- <icon name="desktopdecal_mothership" file="images/decals/mothership_decal.png" /> -->
+
+	<!-- Mothership Decal on Desktop -->
+	<icon name="logo_ms" file="graphics/logos/logo_ms.png" />
+
+	<!-- Mothership Roll Button -->
+	<!-- <icon name="rolls" file="graphics/buttons/roll_ms.png" /> -->
+
+	<!-- Sidebar Small -->
+	<icon name="button_ct" file="graphics/sidebar/button_combattracker.png" />
+	<icon name="button_ct_down" file="graphics/sidebar/button_down.png" />
+	<icon name="button_partysheet" file="graphics/sidebar/button_partysheet.png" />
+	<icon name="button_partysheet_down" file="graphics/sidebar/button_down.png" />
+	<icon name="button_options" file="graphics/sidebar/button_options.png" />
+	<icon name="button_options_down" file="graphics/sidebar/button_down.png" />
+	<icon name="button_calendar" file="graphics/sidebar/button_calendar.png" />
+	<icon name="button_calendar_down" file="graphics/sidebar/button_down.png" />
+	<icon name="button_color" file="graphics/sidebar/button_colors.png" />
+	<icon name="button_color_down" file="graphics/sidebar/button_down.png" />
+	<icon name="button_light" file="graphics/sidebar/button_moodlighting.png" />
+	<icon name="button_light_down" file="graphics/sidebar/button_down.png" />
+	<icon name="button_modifiers" file="graphics/sidebar/button_modifiers.png" />
+	<icon name="button_modifiers_down" file="graphics/sidebar/button_down.png" />
+	<icon name="button_effects" file="graphics/sidebar/button_effects.png" />
+	<icon name="button_effects_down" file="graphics/sidebar/button_down.png" />
+
+	<!-- Combat Tracker buttons from MoreCore -->
+	<icon name="button_zeroinit" file="graphics/buttons/button_zeroinit.png" />
+	<icon name="button_zeroinit_down" file="graphics/buttons/button_zeroinit_down.png" />
+	<icon name="button_rerollinit" file="graphics/buttons/button_rerollinit.png" />
+	<icon name="button_rerollinit_down" file="graphics/buttons/button_rerollinit_down.png" />
+</root>

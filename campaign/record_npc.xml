@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!--
+  Please see the license.html file included with this distribution for
+  attribution and copyright information.
+-->
+
+<root>
+	<windowclass name="npc_main">
+		<margins control="0,0,0,2" />
+		<script>
+			function onInit()
+				update();
+			end
+
+			function update()
+				local bReadOnly = WindowManager.getReadOnlyState(getDatabaseNode());
+
+				combat.update(bReadOnly, bReadOnly and combat.getValue() == 0);
+				instinct.update(bReadOnly, bReadOnly and instinct.getValue() == 0);
+				randominstinct.update(bReadOnly, bReadOnly and instinct.getValue() ~= 0);
+				speed.update(bReadOnly, bReadOnly and speed.getValue() == 0);
+				maxwounds.setReadOnly(bReadOnly);
+				health.setReadOnly(bReadOnly);
+				attacks.update(bReadOnly);
+				crit.update(bReadOnly);
+				specialattack.update(bReadOnly);
+				items.update(bReadOnly);
+				armorpoints.update(bReadOnly, bReadOnly and armorpoints.getValue() == 0);
+				damagereduction.update(bReadOnly, bReadOnly and damagereduction.getValue() == 0);
+				loyalty.update(bReadOnly, bReadOnly and loyalty.getValue() == 0);
+				randomloyalty.update(bReadOnly, bReadOnly and loyalty.getValue() ~= 0);
+				salary.update(bReadOnly);
+				motivation.update(bReadOnly);
+			end
+		</script>
+		<sheetdata>
+			<anchor_column name="columnanchor" />
+
+			<label_column name="combat_label">
+				<static textres="npc_label_combat" />
+			</label_column>
+			<number_npcstat name="combat" source="stats.combat" />
+
+			<label_column name="instinct_label">
+				<static textres="npc_label_instinct" />
+			</label_column>
+			<number_npcstat name="instinct" source="stats.instinct" />
+
+			<label_column name="randominstinct_label">
+				<static textres="npc_label_randominstinct" />
+			</label_column>
+			<string_columnh name="randominstinct" />
+
+			<label_column name="speed_label">
+				<static textres="npc_label_speed" />
+			</label_column>
+			<number_npcstat name="speed" source ="stats.speed" />
+
+			<label_column name="maxwounds_label">
+				<static textres="npc_label_maxwounds" />
+			</label_column>
+			<number_column name="maxwounds">
+				<default>1</default>
+			</number_column>
+
+			<label_column_right name="health_label">
+				<anchored to="maxwounds" />
+				<static textres="npc_label_health" />
+			</label_column_right>
+			<number_column_right name="health" >
+				<anchored to="maxwounds" />
+				<!-- <default>1</default> -->
+			</number_column_right>
+
+<!-- Add Attack Label (uses string from /strings/strings_morecore.xml -->
+			<label_column name="attacks_label">
+				<static textres="npc_label_attack" />
+			</label_column>
+<!-- Add String field. Name is "attacks". Stored in db.xml as "attacks" which means we can access it from the CT on adding this actor to CT -->
+			<string_columnh name="attacks">
+				<nodragselect />
+<!-- Field expands as required -->
+<!-- My suggestions for attack and damage strings are:
+     Use Syntax: [A] Weapon Dice, [D] Weapon Dice,
+     You can only use standard dice (d4, d6, d8, d10, d12, d20 and modifiers -->
+				<script file="campaign/scripts/npc_attack.lua" />
+			</string_columnh>
+
+			<label_column name="crit_label">
+				<static textres="npc_label_crit" />
+			</label_column>
+			<string_columnh name="crit">
+				<!-- <anchored> -->
+					<!-- <top parent="columnanchor" anchor="bottom" relation="relative" offset="7" /> -->
+					<!-- <left offset="97" /> -->
+					<!-- <right offset="-5" /> -->
+				<!-- </anchored> -->
+			</string_columnh>
+
+<!-- Add Special Label (uses string from /strings/strings_morecore.xml -->
+			<label_column name="specialattack_label">
+				<static textres="npc_label_specialattack" />
+			</label_column>
+<!-- Add String field. Descriptive text only -->
+			<string_columnh name="specialattack" />
+
+<!-- Add Skills Label (uses string from /strings/strings_morecore.xml -->
+			<!-- <label_column name="skills_label"> -->
+				<!-- <static textres="npc_label_skills" /> -->
+			<!-- </label_column> -->
+<!-- Add String field. Name is "skills".  -->
+			<!-- <string_columnh name="skills"> -->
+				<!-- <nodragselect /> -->
+<!-- Field expands as required -->
+<!-- My suggestions for skill strings are:
+     Use Syntax: [S] Skill [Target] Dice,
+	 EG: [S] PickPockets [13] d20+1,
+     You can only use standard dice (d4, d6, d8, d10, d12, d20 and modifiers -->
+				<!-- <script file="campaign/scripts/npc_attack.lua" /> -->
+			<!-- </string_columnh> -->
+
+			<label_column name="items_label">
+				<static textres="npc_label_items" />
+			</label_column>
+			<string_columnh name="items" />
+
+			<label_column name="armorpoints_label">
+				<static textres="npc_label_armorpoints" />
+			</label_column>
+			<number_columnh name="armorpoints">
+				<default>0</default>
+			</number_columnh>
+
+			<label_column name="damagereduction_label">
+				<static textres="npc_label_damagereduction" />
+			</label_column>
+			<number_columnh name="damagereduction">
+				<default>0</default>
+			</number_columnh>
+
+			<!-- <label_column name="skills_label"> -->
+				<!-- <static textres="npc_label_skills" /> -->
+			<!-- </label_column> -->
+			<!-- <string_columnh name="skills" /> -->
+
+			<label_column name="loyalty_label">
+				<static textres="npc_label_loyalty" />
+			</label_column>
+			<!-- <number_npcstat_right name="loyalty"> -->
+				<!-- <anchored> -->
+					<!-- <top parent="loyaltycalc" offset="0" /> -->
+				<!-- </anchored> -->
+			<!-- </number_npcstat_right> -->
+			<number_npcstat name="loyalty" />
+
+			<label_column name="randomloyalty_label">
+				<static textres="npc_label_randomloyalty" />
+			</label_column>
+			<string_columnh name="randomloyalty" />
+			
+			<label_column name="salary_label">
+				<static textres="npc_label_salary" />
+			</label_column>
+			<string_columnh name="salary" />
+
+			<label_column name="motivation_label">
+				<static textres="npc_label_motivation" />
+			</label_column>
+			<string_columnh name="motivation" />
+
+			</sheetdata>
+	</windowclass>
+</root>

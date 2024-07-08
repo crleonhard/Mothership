@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the readme.txt file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root version="2.0">
+
+	<!-- Utility frames -->
+
+	<framedef name="desktop">
+		<bitmap file="graphics/decals/background-metal.png" />
+		<middle rect="0,0,1024,1024" />
+	</framedef>
+
+	<!-- Chat window -->
+	<framedef name="chatbox">
+		<bitmap file="graphics/frames/chatbox_ms.png" />
+		<topleft rect="0,0,25,40" />
+		<top rect="25,0,460,40" />
+		<topright rect="485,0,40,40" />
+		<left rect="0,40,25,635" />
+		<middle rect="25,40,460,635" />
+		<right rect="485,40,40,635" />
+		<bottomleft rect="0,675,25,25" />
+		<bottom rect="25,675,460,25" />
+		<bottomright rect="485,675,40,25" />
+	</framedef>
+
+	<!-- Windows -->
+	<framedef name="windowtitle">
+		<bitmap file="graphics/frames/window_title_ms.png" />
+		<offset>25,0,30,0</offset>
+	</framedef>
+
+	<framedef name="referencelist">
+		<bitmap file="graphics/frames/frame_1_ms.png" />
+		<offset>74,75,77,51</offset>
+		<insideoffset>0,0,5,7</insideoffset>
+	</framedef>
+
+	<framedef name="referencepage">
+		<bitmap file="graphics/frames/frame_1_ms.png" />
+		<offset>90,60,90,60</offset>
+		<insideoffset>0,0,10,6</insideoffset>
+	</framedef>
+
+	<!-- Characters -->
+	<framedef name="charsheet">
+		<bitmap file="graphics/frames/frame_charsheet_ms.png" />
+		<offset>35,50,50,65</offset>
+		<insideoffset>0,0,7,7</insideoffset>
+	</framedef>
+
+	<!-- Character selection -->	
+	<framedef name="charselect">
+		<bitmap file="graphics/frames/frame_1_ms.png" />
+		<offset>68,75,77,51</offset>
+		<insideoffset>0,0,5,7</insideoffset>
+	</framedef>
+	<framedef name="charselectentry">
+		<bitmap file="graphics/frames/field_bg_grn.png" />
+		<offset>12,12,12,12</offset>
+	</framedef>
+
+	<!-- Control frames -->
+	<framedef name="bgbox">
+		<bitmap file="graphics/frames/bgbox.png" />
+		<offset>5,5,5,5</offset>
+	</framedef>
+	<framedef name="fieldfocus_ms">
+		<bitmap file="graphics/frames/fieldfocus_ms.png" />
+		<offset>12,12,12,12</offset>
+	</framedef>
+	<framedef name="groupbox">
+		<bitmap file="graphics/frames/groupbox_ms.png" />
+		<offset>18,18,19,19</offset>
+	</framedef>
+
+	<!-- Data Frames -->
+
+	<framedef name="statbox_ms">
+		<bitmap file="graphics/frames/statbox_ms.png" />
+		<offset>7,7,7,7</offset>
+	</framedef>
+
+	<framedef name="statbox_lt_ms">
+		<bitmap file="graphics/frames/statbg_l_ms.png" />
+		<offset>0,0,0,0</offset>
+	</framedef>
+
+	<framedef name="statframe_lt_ms">
+		<bitmap file="graphics/frames/statlabelbg_l_ms.png" />
+		<offset>0,0,0,0</offset>
+	</framedef>
+
+	<framedef name="statbox_rt_ms">
+		<bitmap file="graphics/frames/statbg_r_ms.png" />
+		<offset>0,0,0,0</offset>
+	</framedef>
+
+	<framedef name="statframe_rt_ms">
+		<bitmap file="graphics/frames/statlabelbg_r_ms.png" />
+		<offset>0,0,0,0</offset>
+	</framedef>
+
+	<framedef name="titleframe_ms">
+		<bitmap file="graphics/frames/titlebar_ss_ms.png" />
+		<offset>0,0,0,0</offset>
+	</framedef>
+
+	<framedef name="titlebg_left_ms">
+		<bitmap file="graphics/frames/titlelabel_left.png" />
+		<offset>0,0,0,0</offset>
+	</framedef>
+
+	<framedef name="titlebg_right_ms">
+		<bitmap file="graphics/frames/titlelabel_right.png" />
+		<offset>0,0,0,0</offset>
+	</framedef>
+
+	<framedef name="titlebg_filler_ms">
+		<bitmap file="graphics/frames/titlelabel_filler.png" />
+		<offset>0,0,0,0</offset>
+	</framedef>
+
+	<framedef name="titlebg_fieldb_ms">
+		<bitmap file="graphics/frames/titlelabel_field_big.png" />
+		<offset>0,0,0,0</offset>
+	</framedef>
+
+	<framedef name="titlebg_fields_ms">
+		<bitmap file="graphics/frames/titlelabel_field_small.png" />
+		<offset>0,0,0,0</offset>
+	</framedef>
+
+	<framedef name="fieldlight_ms">
+    	<bitmap file="graphics/frames/fieldlight_ms.png" />
+    	<offset>13,13,13,13</offset>
+    </framedef>
+
+    <framedef name="fielddark">
+   		<bitmap file="graphics/frames/fielddark_ms.png" />
+   		<offset>13,13,13,13</offset>
+   </framedef>
+
+	<!-- Combat tracker -->
+	<framedef name="ctbox">
+		<bitmap file="graphics/frames/ctframe_ms.png" />
+		<offset>50,80,50,80</offset>
+		<insideoffset>0,0,7,7</insideoffset>
+	</framedef>
+
+	<!-- Party Sheet -->
+	<framedef name="partysheet">
+		<bitmap file="graphics/frames/frame_1_ms.png" />
+		<offset>30,30,40,30</offset>
+		<insideoffset>0,0,7,7</insideoffset>
+	</framedef>
+
+	<!-- Calendar -->
+	<framedef name="calendar">
+		<bitmap file="graphics/frames/frame_1_ms.png" />
+		<offset>25,40,25,25</offset>
+		<insideoffset>0,0,7,7</insideoffset>
+	</framedef>
+
+	<!-- Utility windows -->
+	<framedef name="utilitybox">
+		<bitmap file="graphics/frames/frame_1_ms.png" />
+		<offset>30,30,30,30</offset>
+		<insideoffset>0,0,10,10</insideoffset>
+	</framedef>
+	<framedef name="utilitybox2">
+		<bitmap file="graphics/frames/frame_1_ms.png" />
+		<offset>92,100,100,110</offset>
+		<insideoffset>0,0,7,8</insideoffset>
+	</framedef>
+	<framedef name="utilitybox3">
+		<bitmap file="graphics/frames/frame_1_ms.png" />
+		<offset>74,75,77,51</offset>
+		<insideoffset>0,0,5,7</insideoffset>
+	</framedef>
+	<framedef name="campaignlist_tables">
+		<bitmap file="graphics/frames/frame_2_ms.png" />
+		<offset>30,30,30,30</offset>
+		<insideoffset>0,0,8,18</insideoffset>
+	</framedef>
+	<framedef name="campaignlistwithtabs">
+		<bitmap file="graphics/frames/frame_2_ms.png" />
+		<offset>30,30,30,30</offset>
+		<insideoffset>0,0,10,8</insideoffset>
+	</framedef>
+
+	<!-- Story and Notes -->
+	<framedef name="storybox">
+		<!-- <bitmap file="graphics/frames/frame_2_ms.png" /> -->
+		<bitmap file="graphics/frames/groupbox_ms.png" />
+		<offset>30,30,30,30</offset>
+		<insideoffset>0,0,10,5</insideoffset>
+	</framedef>
+
+	<!-- Images -->
+	<framedef name="imagebox">
+		<bitmap file="graphics/frames/frame_1_ms.png" />
+		<offset>150,135,150,150</offset>
+		<insideoffset>0,0,20,22</insideoffset>
+	</framedef>
+
+	<!-- Other Campaign Records -->
+	<framedef name="recordsheet">
+		<bitmap file="graphics/frames/frame_1_ms.png" />
+		<offset>30,30,40,30</offset>
+		<insideoffset>0,0,7,7</insideoffset>
+	</framedef>
+
+	<!-- Hot Key Bar -->
+
+	<framedef name="hotkeybox">
+		<bitmap file="graphics/frames/hotkeybox_ms.png" />
+		<offset>2,5,2,2</offset>
+	</framedef>
+	<framedef name="hotkeytitlebox">
+		<bitmap file="graphics/frames/hotkeytitlebox_ms.png" />
+		<offset>1,1,1,1</offset>
+	</framedef>
+
+	<!-- Token Bag -->
+	<framedef name="tokenbag">
+		<bitmap file="graphics/frames/frame_1_ms.png" />
+		<offset>30,30,30,30</offset>
+		<insideoffset>0,0,13,13</insideoffset>
+	</framedef>
+
+	<!-- Buttons -->
+	<framedef name="buttonup">
+		<bitmap file="graphics/frames/buttonup_ms.png" />
+		<offset>12,12,12,12</offset>
+	</framedef>
+	<framedef name="buttondown">
+		<bitmap file="graphics/frames/buttondown_ms.png" />
+		<offset>12,12,12,12</offset>
+	</framedef>
+
+	<!-- Sidebar -->
+	<framedef name="button_sidebar_dockitem">
+		<bitmap file="graphics/sidebar/button_wide_ms.png" />
+		<offset>8,8,8,8</offset>
+	</framedef>
+	<framedef name="button_sidebar_dockitem_down">
+		<bitmap file="graphics/sidebar/button_wide_down_ms.png" />
+		<offset>8,8,8,8</offset>
+	</framedef>
+
+</root>

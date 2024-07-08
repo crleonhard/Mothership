@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+	<windowclass name="combattracker_client" merge="join">
+		<placement>
+			<size width="500" height="400" />
+		</placement>
+		<sizelimits>
+			<minimum width="500" height="400" />
+		</sizelimits>
+		<sheetdata>
+			<spacer_ct_client_header_buttons name="spacer_buttons_header">
+				<anchored width="50" />
+			</spacer_ct_client_header_buttons>
+
+			<label_ct_right name="label_healthbar" insertbefore="label_name">
+				<anchored width="12" />
+				<default>X</default>
+				<tooltip textres="ct_label_healthbar" />
+			</label_ct_right>
+			<label_ct_right name="label_injury" insertbefore="label_name">
+				<default>Inj</default>
+				<tooltip textres="ct_label_injury" />
+			</label_ct_right>
+			<label_ct_right name="label_wounds" insertbefore="label_name">
+				<default>Wnd</default>
+				<tooltip textres="ct_label_wounds" />
+			</label_ct_right>
+
+			<label_ct_header_name name="label_name" merge="join">
+				<anchored>
+					<left parent="headeranchor" offset="30" />
+					<right parent="rightanchor" anchor="left" relation="relative" offset="-10" />
+				</anchored>
+				<left parent="token" anchor="right" offset="12" />
+			</label_ct_header_name>
+
+			<list_ctbox_client name="list">
+				<anchored>
+					<left offset="0" />
+					<right offset="5" />
+				</anchored>
+			</list_ctbox_client>
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="client_ct_entry" merge="join">
+		<script file="ct/scripts/clientct_entry.lua" />
+		<sheetdata>
+			<number_ctentry_initresult name="initresult">
+				<tabtarget prev="injury" />
+			</number_ctentry_initresult>
+
+			<button_ctentry_health name="nowound" insertbefore="name">
+				<anchored to="rightanchor">
+					<top />
+					<right anchor="left" relation="relative" offset="-10" />
+				</anchored>
+			</button_ctentry_health>
+
+			<number_ct_crosslink name="injury" source="injury" insertbefore="name">
+				<anchored to="rightanchor" width="30" height="20">
+					<top />
+					<right anchor="left" relation="relative" offset="-10" />
+				</anchored>
+				<tabtarget prev="wounds"  next="initresult"/>
+				<min>0</min>
+			</number_ct_crosslink>
+		
+			<number_ct_crosslink name="wounds" source="wounds" insertbefore="name">
+				<anchored to="rightanchor" width="30" height="20">
+					<top />
+					<right anchor="left" relation="relative" offset="-10" />
+				</anchored>
+				<tabtarget prev="name" next="injury"/>
+			</number_ct_crosslink>
+
+			<string_clientct_name name="name" merge="join">
+				<tabtarget next="wounds" />
+			</string_clientct_name>
+		</sheetdata>
+	</windowclass>
+</root>

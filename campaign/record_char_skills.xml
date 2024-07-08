@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<windowclass name="charsheet_skills">
+		<script>
+			function onDrop(x, y, draginfo)
+				if draginfo.isType("shortcut") then
+					local sClass = draginfo.getShortcutData();
+					if sClass == "reference_skill" then
+						skills.addSkillReference(draginfo.getDatabaseNode());
+					end
+					return true;
+				end
+			end
+		</script>
+		<sheetdata>
+			<!-- <frame_char name="skillpointsframe"> -->
+				<!-- <bounds>15,0,-29,40</bounds> -->
+			<!-- </frame_char> -->
+			<!-- <label name="skillpoints_label"> -->
+				<!-- <anchored to="skillpointsframe" position="insidetopleft" offset="10,10" /> -->
+				<!-- <static textres="char_label_skillpoints" /> -->
+			<!-- </label> -->
+			<!-- <basicnumber name="skillpoints" source="skillpoints"> -->
+				<!-- <anchored to="skillpointsframe" position="insidetopleft" offset="155,10" width="55" height="20" /> -->
+			<!-- </basicnumber> -->
+		
+			<frame_char name="skillsframe">
+				<!-- <bounds>15,40,-29,-105</bounds> -->
+				<!-- <bounds>15,0,-29,-200</bounds> -->
+				<bounds>28,10,-45,-200</bounds>
+			</frame_char>
+			<frame_char name="salaryframe">
+				<!-- <bounds>15,-200,-29,40</bounds> -->
+				<bounds>28,-200,-45,40</bounds>
+			</frame_char>
+			<frame_char name="unlocksframe">
+				<!-- <bounds>15,-160,-29,-5</bounds> -->
+				<bounds>28,-160,-45,-5</bounds>
+			</frame_char>
+			
+			<genericcontrol name="rightanchor">
+				<anchored to="skillsframe" width="0" height="0">
+					<top offset="10" />
+					<right offset="-20" />
+				</anchored>
+				<invisible />
+			</genericcontrol>
+			<!-- <genericcontrol name="idelete_header"> -->
+				<!-- <anchored to="rightanchor" width="20" height="20"> -->
+					<!-- <top /> -->
+					<!-- <right anchor="left" relation="relative" offset="-5" /> -->
+				<!-- </anchored> -->
+				<!-- <disabled /> -->
+			<!-- </genericcontrol> -->
+			<genericcontrol name="shortcut_header">
+				<anchored to="rightanchor" width="20" height="20">
+					<top />
+					<right anchor="left" relation="relative" offset="-2" />
+				</anchored>
+				<disabled />
+			</genericcontrol>
+			<label name="total_label">
+				<anchored to="rightanchor" width="48">
+					<top />
+					<right anchor="left" relation="relative" offset="-3" />
+				</anchored>
+				<center />
+				<static textres="char_label_skilltotal" />
+			</label>
+			<label name="stat_label">
+				<anchored to="rightanchor" width="50">
+					<top />
+					<right anchor="left" relation="relative" offset="-3" />
+				</anchored>
+				<center />
+				<static textres="char_label_skillstat" />
+			</label>
+			<label name="bonus_label">
+				<anchored to="rightanchor" width="48">
+					<top />
+					<right anchor="left" relation="relative" offset="-3" />
+				</anchored>
+				<center />
+				<static textres="char_label_skillbonus" />
+			</label>
+			<label name="name_label">
+				<anchored>
+					<top parent="rightanchor" />
+					<!-- <left offset="35" /> -->
+					<left offset="0" />
+					<right parent="rightanchor" anchor="left" relation="relative" offset="-2" />
+				</anchored>
+				<static textres="char_label_skillname" />
+				<center />
+			</label>
+
+			<windowlist name="skills">
+				<anchored to="skillsframe">
+					<top offset="40" />
+					<left offset="15" />
+					<right offset="-20" />
+					<bottom offset="-15" />
+				</anchored>
+				<child></child>
+				<child><backcolor>1A40301E</backcolor></child>
+				<datasource>.skilllist</datasource>
+				<class>skill_item</class>
+				<allowdelete />
+				<sortby><control>name</control></sortby>
+				<script file="campaign/scripts/char_skilllist.lua" />
+			</windowlist>
+			<scrollbar>
+				<anchored to="skills" />
+				<target>skills</target>
+			</scrollbar>
+
+			<button_iedit name="skills_iedit">
+				<anchored to="skills" position="aboveright" offset="5,10" />
+				<target>skills</target>
+			</button_iedit>
+			<!-- <button_iadd name="skills_iadd"> -->
+				<!-- <anchored to="skills_iedit" position="lefthigh" offset="5,0" /> -->
+				<!-- <target>skills</target> -->
+			<!-- </button_iadd> -->
+
+			<label name="salary_label">
+				<anchored to="salaryframe" position="insidetopleft" offset="10,10" />
+				<static textres="char_label_salary" />
+			</label>
+			<!-- <number_stat name="salary" source="salary"> -->
+				<!-- <anchored to="salaryframe" position="insidetopleft" offset="155,10" width="55" height="20" /> -->
+				<!-- <readonly /> -->
+			<!-- </number_stat> -->
+			<stringcontrol name="salary" source="salary">
+				<anchored to="salaryframe" position="insidetopleft" offset="155,10" width="55" height="20" />
+				<readonly />
+			</stringcontrol>
+			
+			<label_frametop>
+				<anchored to="unlocksframe" />
+				<static textres="char_label_unlocks" />
+			</label_frametop>
+			<stringfield name="unlocks">
+				<anchored to="unlocksframe">
+					<top offset="30" />
+					<left offset="15" />
+					<right offset="-15" />
+					<bottom offset="-15" />
+				</anchored>
+				<multilinespacing>20</multilinespacing>
+				<nodrag />
+			</stringfield>
+			<scrollbar_list>
+				<anchored to="unlocks" />
+				<target>unlocks</target>
+			</scrollbar_list>
+			
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="skill_item">
+		<margins control="0,0,0,2" />
+		<script file="campaign/scripts/char_skill.lua" />
+		<sheetdata>
+			<genericcontrol name="rightanchor">
+				<anchored position="insidetopright" offset="0,2" height="0" width="0" />
+				<invisible />
+			</genericcontrol>
+			<button_idelete name="idelete">
+				<anchored width="20" height="20">
+					<top offset="2" />
+					<right parent="rightanchor" anchor="left" relation="relative" offset="-5" />
+				</anchored>
+			</button_idelete>
+			<genericcontrol name="idelete_spacer">
+				<anchored to="rightanchor" width="20" height="20">
+					<top offset="0" />
+					<right anchor="left" relation="relative" offset="-5" />
+				</anchored>
+			</genericcontrol>
+			<!-- <linkcontrol_id name="shortcut"> -->
+				<!-- <anchored width="20" height="20"> -->
+					<!-- <top offset="2" /> -->
+					<!-- <right parent="rightanchor" anchor="left" relation="relative" offset="-2" /> -->
+				<!-- </anchored> -->
+				<!-- <class>reference_skill</class> -->
+				<!-- <readonly /> -->
+			<!-- </linkcontrol_id> -->
+			<number_charskilltotal name="total">
+				<anchored to="rightanchor">
+					<top />
+					<right anchor="left" relation="relative" offset="-7" />
+				</anchored>
+			</number_charskilltotal>
+			<cycler_ability name="stat">
+				<anchored to="rightanchor" width="40" height="20">
+					<top />
+					<right anchor="left" relation="relative" offset="-12" />
+				</anchored>
+				<tabtarget prev="bonus" />
+			</cycler_ability>
+			<number_charskill name="bonus">
+				<anchored to="rightanchor">
+					<top />
+					<right anchor="left" relation="relative" offset="-12" />
+				</anchored>
+				<readonly />
+				<tabtarget next="stat" prev="name" />
+			</number_charskill>
+			<!-- <cycler_skillbonus name="bonus"> -->
+				<!-- <anchored to="rightanchor" width="40" height="20"> -->
+					<!-- <top /> -->
+					<!-- <right anchor="left" relation="relative" offset="-12" /> -->
+				<!-- </anchored> -->
+				<!-- <tabtarget next="stat" prev="name" /> -->
+			<!-- </cycler_skillbonus> -->
+			<string_textlistitem name="name">
+				<anchored to="rightanchor">
+					<top />
+					<left parent="" />
+					<right anchor="left" relation="relative" offset="-7" />
+				</anchored>
+				<multilinespacing>20</multilinespacing>
+				<readonly />
+				<tabtarget next="bonus" />
+			</string_textlistitem>
+			<!-- <string_textlistitem name="rank"> -->
+				<!-- <anchored to="rightanchor"> -->
+					<!-- <top /> -->
+					<!-- <left parent="" /> -->
+					<!-- <right anchor="left" relation="relative" offset="-7" /> -->
+				<!-- </anchored> -->
+				<!-- <invisible /> -->
+			<!-- </string_textlistitem> -->
+			<!-- <string_textlistitem name="prerequisites"> -->
+				<!-- <anchored to="rightanchor"> -->
+					<!-- <top /> -->
+					<!-- <left parent="" /> -->
+					<!-- <right anchor="left" relation="relative" offset="-7" /> -->
+				<!-- </anchored> -->
+				<!-- <invisible /> -->
+			<!-- </string_textlistitem> -->
+		</sheetdata>
+	</windowclass>
+
+</root>

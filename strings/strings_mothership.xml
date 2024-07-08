@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+
+	<string name="dash">-</string>
+	
+	<string name="STR">STR</string>
+	<string name="SPD">SPD</string>
+	<string name="INT">INT</string>
+	<string name="COM">COM</string>
+	
+	<string name="str">Str</string>
+	<string name="spd">Spd</string>
+	<string name="int">Int</string>
+	<string name="com">Com</string>
+
+	<string name="san">San</string>
+	<string name="fea">Fea</string>
+	<string name="bod">Bod</string>
+	
+	<string name="strength">Strength</string>
+	<string name="speed">Speed</string>
+	<string name="intellect">Intellect</string>
+	<string name="combat">Combat</string>
+
+	<string name="sanity">Sanity</string>
+	<string name="fear">Fear</string>
+	<string name="body">Body</string>
+			
+	<string name="STRENGTH">STRENGTH</string>
+	<string name="SPEED">SPEED</string>
+	<string name="INTELLECT">INTELLECT</string>
+	<string name="COMBAT">COMBAT</string>
+	<string name="ANY">ANY</string>
+
+	<string name="SANITY">SANITY</string>
+	<string name="FEAR">FEAR</string>
+	<string name="BODY">BODY</string>
+
+	<string name="untrainedbonus">+0</string>
+	<string name="trainedbonus">+10</string>
+	<string name="expertbonus">+15</string>
+	<string name="masterbonus">+20</string>
+
+	<string name="insignificantcover">min</string>
+	<string name="lightcover">lt</string>
+	<string name="heavycover">hvy</string>
+
+	<!-- <string name="untrainedrank">Untrained</string> -->
+	<string name="trainedrank">Trained</string>
+	<string name="expertrank">Expert</string>
+	<string name="masterrank">Master</string>
+
+	<string name="bluntforce">Blunt Force</string>
+	<string name="bleeding">Bleeding</string>
+	<string name="gunshot">Gunshot</string>
+	<string name="fireandexplosives">Fire &amp; Explosives</string>
+	<string name="goreandmassive">Gore &amp; Massive</string>
+
+	<string name="armor">Armor</string>
+	<string name="weapon">Weapon</string>
+	<string name="equipment">Equipment</string>
+	<string name="loadout">Loadout</string>
+	<!-- <string name="skill">Skill</string> -->
+
+	<!-- <string name="SAFETY">SAFE?</string> -->
+	<string name="STRESS">STRESS</string>
+	<string name="MINSTRESS">MIN STRESS</string>
+	<string name="REST">REST</string>
+	<string name="MAXWOUNDS">MAX WNDS</string>
+	<string name="HEALTH">HEALTH</string>
+	<string name="INJURY">INJURY</string>
+	<string name="WOUNDS">WOUNDS</string>
+	<string name="BLEEDING">BLEEDING</string>
+	<string name="ARMOR">ARMOR</string>
+	<string name="DR">DR</string>
+
+	<string name="CR">CR</string>
+	<string name="KCR">KCR</string>
+	<string name="MCR">MCR</string>
+	<string name="BCR">BCR</string>
+
+	<string name="char_build_message_selectmasterskill">Choose a master skill from the list below.</string>
+	<string name="char_build_message_selectskill">Choose a skill from the list below.</string>
+	<string name="char_build_message_selectskills">Choose %d skills from the list below.</string>
+	<string name="char_build_message_selectskilloption">Choose a skill option from the list below.</string>
+	<string name="char_build_message_selectstat">Choose a stat to %s from the list below.</string>
+
+	<string name="char_build_title_selectrankedskills">Select %s Skills</string>
+	<string name="char_build_title_selectskilloption">Select Skill Option</string>
+	<string name="char_build_title_selectskillprerequisite">Select %s Prerequisite</string>
+	<string name="char_build_title_selectskills">Select Skills</string>
+	<string name="char_build_title_selectstat">Select Stat</string>
+
+	<string name="char_error_addclass">Characters cannot change class selection.</string>
+	<string name="char_error_maxsave">Character saves may not be increased above 85.</string>
+	<string name="char_error_maxstat">Character stats may not be increased above 85.</string>
+	<string name="char_error_maxstress">Stress may not be increased above 20.</string>
+	<string name="char_error_minstress">Stress may not be reduced below Minimum Stress.</string>
+	<string name="char_error_missingreference">Missing reference: </string>
+	<string name="char_error_missingskillprerequisite">The '%s' skill requires a prerequisite: %s.</string>
+	<string name="char_error_missingskillprerequisite_plural">The '%s' skill requires one of these prerequisites: %s.</string>
+	<string name="char_error_skilladd">Skill reference '%s' cannot be resolved.</string>
+
+	<string name="char_label_appearance">Personal Notes</string>
+ 	<string name="char_label_class">Class</string>
+	<string name="char_label_conditions">Conditions</string>
+	<string name="char_label_credits">CREDITS</string>
+	<string name="char_label_health">HEALTH</string>
+	<string name="char_label_highscore">Score</string>
+	<string name="char_label_pronoun">Pronoun</string>
+	<string name="char_label_saves">SAVES</string>
+	<string name="char_label_stats">STATS</string>
+	<string name="char_label_stress">STRESS</string>	
+	<string name="char_label_traumaresponse">TRAUMA RESPONSE</string>
+	<string name="char_label_salary">Salary</string>
+	<string name="char_label_skillbonus">BONUS</string>
+	<string name="char_label_skillname">SKILL</string>
+	<string name="char_label_skills">SKILLS</string>
+	<string name="char_label_skillstat">STAT</string>
+	<string name="char_label_skilltotal">TOTAL</string>
+	<string name="char_label_unlocks">Available Skills</string>
+	<string name="char_label_weaponammo">Shots</string>
+	
+	<string name="char_message_armorcount">'%s' has equipped multiple armor items.</string>
+	<string name="char_message_atkwithnoammo">[ATTACKING WHILE OUT OF AMMO]</string>
+	<!-- <string name="char_message_initdis">'%s' makes their Speed Check for turn order with disadvantage.</string> -->
+	<string name="char_message_loadoutadd">Random %s loadout added to '%s'.</string>
+	<string name="char_message_maxwoundsadd">%s max wounds adjustment applied to '%s'.</string>
+	<string name="char_message_savesadd">%s save adjustments applied to '%s'.</string>
+	<string name="char_message_skilladd">Skill '%s' added to '%s'.</string>
+	<string name="char_message_statsadd">%s stat adjustments applied to '%s'.</string>
+	<string name="char_message_traumaadd">%s trauma response applied to '%s'.</string>
+	<string name="char_message_weaponskill">'%s' skill bonus applied to '%s' weapon entry.</string>
+
+	<!-- <string name="char_safety_tooltip">Safe from stress?</string> -->
+	<string name="char_skills_tooltip_edit">Edit Skills</string>
+
+	<string name="class_label_health">HEALTH</string>
+	<string name="class_label_note">NOTES</string>
+	<string name="class_label_saves">SAVES</string>
+	<string name="class_label_skills">SKILLS</string>
+	<string name="class_label_stats">STATS</string>
+	<string name="class_label_traumaresponse">TRAUMA RESPONSE</string>
+
+	<!-- <string name="class_value_android">Android</string> -->
+	<!-- <string name="class_value_marine">Marine</string> -->
+	<!-- <string name="class_value_scientist">Scientist</string> -->
+	<!-- <string name="class_value_teamster">Teamster</string> -->
+	
+	<string name="ct_label_armor">Armor</string>
+	<string name="ct_label_attacks">Attacks</string>
+	<string name="ct_label_combat">Combat</string>
+	<string name="ct_label_damagereduction">Damage Reduction</string>
+	<string name="ct_label_health">Health</string>
+	<string name="ct_label_healthbar">Status</string>
+	<string name="ct_label_injury">Injuries</string>
+	<string name="ct_label_instinct">Instinct</string>
+	<string name="ct_label_maxwounds">Max Wounds</string>
+	<string name="ct_label_wounds">Wounds</string>
+
+	<string name="ct_tooltip_attacks">Attacks</string>
+
+	<!-- <string name="item_button_armor">Armor</string> -->
+	<!-- <string name="item_button_equipment">Equipment</string> -->
+	<!-- <string name="item_button_loadouts">Loadouts</string> -->
+	<!-- <string name="item_button_weapons">Weapons</string> -->
+
+	<string name="item_error_recursion">Loadouts may not contain loadouts.</string>
+
+	<string name="item_grouped_label_armor">Armor</string>
+	<string name="item_grouped_label_cost">Cost</string>
+	<string name="item_grouped_label_crit">Wound</string>
+	<string name="item_grouped_label_damage">Damage</string>
+	<string name="item_grouped_label_damagereduction">DR</string>
+	<string name="item_grouped_label_name">Name</string>
+	<string name="item_grouped_label_o2supply">O2 Supply</string>
+	<string name="item_grouped_label_shots">Shots</string>
+	<string name="item_grouped_label_special">Special</string>
+	<string name="item_grouped_label_speed">Speed</string>
+
+	<!-- <string name="item_grouped_title_armor">Armor</string> -->
+	<!-- <string name="item_grouped_title_equipment">Equipment</string> -->
+	<!-- <string name="item_grouped_title_loadouts">Loadouts</string> -->
+	<!-- <string name="item_grouped_title_weapons">Weapons</string> -->
+
+	<!-- <string name="item_label_armordamage">Damage</string> -->
+	<string name="item_label_armorpoints">Armor</string>
+	<string name="item_label_crit">Wound</string>
+	<string name="item_label_damage">Damage</string>
+	<string name="item_label_damagereduction">DR</string>
+	<string name="item_label_description">Description</string>
+	<string name="item_label_o2supply">O2 Supply</string>
+	<string name="item_label_range">Range</string>
+	<string name="item_label_shots">Shots</string>
+	<string name="item_label_special">Special</string>
+	<string name="item_label_speed">Speed</string>
+	<string name="item_label_subitems">Items</string>
+	<string name="item_label_type">Type</string>
+	<string name="item_label_usedammo">Used Ammo</string>
+
+	<string name="npc_label_armorpoints">Armor</string>
+	<string name="npc_label_attack">Attacks</string>
+	<string name="npc_label_combat">Combat</string>
+	<string name="npc_label_crit">Wound Type</string>
+	<string name="npc_label_damagereduction">DR</string>
+	<string name="npc_label_health">Health</string>
+	<string name="npc_label_instinct">Instinct</string>
+	<string name="npc_label_items">Items</string>
+	<string name="npc_label_loyalty">Loyalty</string>
+	<string name="npc_label_maxwounds">Max Wounds</string>
+	<string name="npc_label_motivation">Motivation</string>
+	<string name="npc_label_randominstinct">Rnd Instinct</string>
+	<string name="npc_label_randomloyalty">Rnd Loyalty</string>
+	<string name="npc_label_salary">Salary</string>
+	<string name="npc_label_specialattack">Special</string>
+	<string name="npc_label_speed">Speed</string>
+
+	<string name="option_label_HRARM">Armor Damage: Apply Armor damage</string>
+	<string name="option_label_HREFF">Wound Effects: Apply Wound and Panic effects</string>
+	<string name="option_label_HRLOA">Loadouts: Automatic loadouts</string>
+	<string name="option_label_HRPAN">Panic: Automatic Panic checks</string>
+	<string name="option_label_HRSTO">Strict Turn Order: Roll Speed checks for initiative</string>
+	<string name="option_label_HRSTR">Stress: Apply Stress changes</string>
+	<string name="option_label_HRTRI">Trinkets: Automatic trinkets and patches</string>
+	<string name="option_label_HRWND">Wound Rolls: Automatic Wound rolls</string>
+
+	<string name="ref_label_list_armorpoints">Armor</string>
+	<string name="ref_label_list_cost">Cost</string>
+	<string name="ref_label_list_crit">Wound</string>
+	<string name="ref_label_list_damage">Damage</string>
+	<string name="ref_label_list_damagereduction">DR</string>
+	<string name="ref_label_list_description">Description</string>
+	<string name="ref_label_list_name">Name</string>
+	<string name="ref_label_list_o2supply">O2</string>
+	<string name="ref_label_list_range">Range</string>
+	<string name="ref_label_list_rank">Rank</string>
+	<string name="ref_label_list_shots">Shots</string>
+	<string name="ref_label_list_special">Special</string>
+	<string name="ref_label_list_speed">Speed</string>
+
+	<string name="ref_type_armor">Armor</string>
+	<string name="ref_type_equipment">Equipment</string>
+	<string name="ref_type_loadout">Loadout</string>
+	<string name="ref_type_pcclass">Class</string>
+	<string name="ref_type_ship">Ship</string>
+	<string name="ref_type_skill">Skill</string>
+	<string name="ref_type_weapon">Weapon</string>
+
+	<!-- <string name="reference_button_ship">By Rank</string> -->
+	<string name="reference_button_skill">By Rank</string>
+	
+	<string name="skill_grouped_label_name">Skill</string>
+	<string name="skill_grouped_label_prerequisites">Prerequisites</string>
+	<string name="skill_grouped_label_rank">Rank</string>
+
+	<string name="skill_grouped_title_byrank">Skills by Rank</string>
+
+	<string name="skill_grouped_tooltip_prerequisites">Must have 1 of these skills to unlock</string>
+	
+	<string name="skill_label_prerequisites">Prerequisites</string>
+	<string name="skill_label_rank">Rank</string>
+	<string name="skill_label_stat">Default Stat</string>
+
+	<string name="ship_label_captain">Captain</string>
+	<string name="ship_label_classification">Class/Type</string>
+	<string name="ship_label_crew">Crew</string>
+	<string name="ship_label_maxcrew">Max Crew</string>
+	<string name="ship_label_transponder">Transponder</string>
+	<string name="ship_label_fuel">Fuel</string>
+	<string name="ship_label_maxfuel">Max Fuel</string>
+	<string name="ship_label_warpcores">Warp Cores</string>
+	<string name="ship_label_thrusters">Thrusters</string>
+	<string name="ship_label_battle">Battle</string>
+	<string name="ship_label_systems">Systems</string>
+	<string name="ship_label_o2">O2 Remaining</string>
+	<string name="ship_label_cryopods">Cryopods</string>
+	<string name="ship_label_escapepods">Escape Pods</string>
+	<string name="ship_label_conditionheader">STATUS</string>
+	<string name="ship_label_hullpoints">Hull Points</string>
+	<string name="ship_label_mdmg">MDMG</string>
+	<string name="ship_label_installedhardpoints">Installed</string>
+	<string name="ship_label_maxhardpoints">Hardpoints</string>
+	<string name="ship_label_megadamage">Megadamage</string>
+	<string name="ship_label_mdmgeffects">MDMG Effects</string>
+	<string name="ship_label_weaponsheader">WEAPONS</string>
+	<string name="ship_label_weapons">Weapons</string>
+	<string name="ship_label_upgradesheader">UPGRADES</string>
+	<string name="ship_label_upgrades">Upgrades</string>
+	<string name="ship_label_repairsheader">REPAIRS</string>
+	<string name="ship_label_minorrepairs">Minor Repairs</string>
+	<string name="ship_label_majorrepairs">Major Repairs</string>
+	<string name="ship_label_cargoheader">CARGO</string>
+	<string name="ship_label_cargo">Cargo</string>
+	<!-- <string name="ship_label_condition">Condition</string> -->
+	<string name="ship_label_installedupgrades">Installed</string>
+	<string name="ship_label_maxupgrades">Maximum</string>
+
+	<string name="tooltip_cover5">Insignificant Cover (Heavy vs AA)</string>
+	<string name="tooltip_cover10">Light Cover</string>
+	<string name="tooltip_cover25">Heavy Cover</string>
+
+ 	<string name="library_recordtype_label_pcclass">Classes</string>
+
+	<!-- Investigator -->
+	<string name="ref_label_investigator">Clues</string>
+	<string name="library_recordtype_label_mc_investigator">Clues</string>
+ 	<string name="sidebar_tooltip_mc_investigator">Clues</string>
+
+	<!-- World Builder -->
+	<string name="ref_label_world">World Data</string>
+	<string name="library_recordtype_label_mc_world">World Data</string>
+ 	<string name="sidebar_tooltip_mc_world">World Data</string>
+
+	<!-- Utility -->
+	<string name="library_recordtype_empty_item">&#171; New Item &#187;</string>
+	<string name="library_recordtype_empty_pcclass">&#171; New Class &#187;</string>
+	<string name="library_recordtype_empty_npc">&#171; New NPC &#187;</string>
+	<string name="library_recordtype_empty_ship">&#171; New Ship &#187;</string>
+
+	<!-- Ships -->
+	<string name="ref_label_ship">Ships</string>
+	<string name="library_recordtype_label_ship">Ships</string>
+ 	<string name="sidebar_tooltip_ship">Ships</string>
+	<string name="library_recordview_label_ship">Ships</string>
+	
+	<!-- <string name="library_recordview_label_item_armor">Armor</string> -->
+	<string name="library_recordview_label_item_equipment">Equipment</string>
+	<string name="library_recordview_label_item_loadout">Loadouts</string>
+	<!-- <string name="library_recordview_label_item_weapon">Weapons</string> -->
+	<string name="library_recordview_label_skill_byrank">By Rank</string>
+
+	<!-- Combat Tracker from MoreCore -->
+ 	<string name="ct_menu_turnreset">Clear Turn Indicator</string>
+ 	<string name="ct_menu_rerollinit">Reroll Initiative</string>
+ 	<string name="ct_menu_zeroinit">Reset Initiative</string>
+
+</root>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+
+	<windowclass name="reference_armor" copy="record_window" />
+	<windowclass name="reference_armor_header" copy="record_header" />
+	<windowclass name="reference_armor_main">
+		<margins control="0,0,0,7" />
+		<sheetdata>
+			<anchor_column name="columnanchor" />
+			
+			<label_column name="cost_label">
+				<static textres="ref_label_list_cost" />
+			</label_column>
+			<string_column_left name="cost">
+				<readonly />
+			</string_column_left>
+			
+			<label_column name="armorpoints_label">
+				<static textres="item_label_armorpoints" />
+			</label_column>
+			<number_columnh name="armorpoints" />
+
+			<label_column name="damagereduction_label">
+				<static textres="item_label_damagereduction" />
+			</label_column>
+			<number_columnh name="damagereduction" />
+
+			<label_column name="o2supply_label">
+				<static textres="item_label_o2supply" />
+			</label_column>
+			<string_column name="o2supply" />
+
+			<label_column name="speed_label">
+				<static textres="item_label_speed" />
+			</label_column>
+			<string_column name="speed" />
+
+			<label_column name="special_label">
+				<static textres="item_label_special" />
+			</label_column>
+			<string_column name="special">
+				<readonly />
+			</string_column>
+						
+			<line_column name="line_desc" />
+			
+			<string_columnh name="description">
+				<anchored>
+					<left offset="5" />
+				</anchored>
+				<separator>line_desc</separator>
+				<readonly />
+			</string_columnh>
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="reference_weapon" copy="record_window" />
+	<windowclass name="reference_weapon_header" copy="record_header" />
+	<windowclass name="reference_weapon_main">
+		<margins control="0,0,0,7" />
+		<sheetdata>
+			<anchor_column name="columnanchor" />
+			
+			<label_column name="cost_label">
+				<static textres="ref_label_list_cost" />
+			</label_column>
+			<string_column_left name="cost">
+				<readonly />
+			</string_column_left>
+
+			<label_column name="range_label">
+				<static textres="item_label_range" />
+			</label_column>
+			<string_column name="range">
+				<readonly />
+			</string_column>
+			
+			<label_column name="damage_label">
+				<static textres="item_label_damage" />
+			</label_column>
+			<string_column name="damage">
+				<readonly />
+			</string_column>
+
+			<label_column name="shots_label">
+				<static textres="item_label_shots" />
+			</label_column>
+			<string_column name="shots">
+				<readonly />
+			</string_column>
+
+			<label_column name="crit_label">
+				<static textres="item_label_crit" />
+			</label_column>
+			<string_column name="crit">
+				<readonly />
+			</string_column>
+
+			<label_column name="special_label">
+				<static textres="item_label_special" />
+			</label_column>
+			<string_column name="special">
+				<readonly />
+			</string_column>
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="reference_equipment" copy="record_window" />
+	<windowclass name="reference_equipment_header" copy="record_header" />
+	<windowclass name="reference_equipment_main">
+		<margins control="0,0,0,7" />
+		<sheetdata>
+			<anchor_column name="columnanchor" />
+
+			<label_column name="cost_label">
+				<static textres="ref_label_list_cost" />
+			</label_column>
+			<string_column_left name="cost">
+				<readonly />
+			</string_column_left>
+			
+			<line_column name="line_desc" />
+
+			<string_columnh name="description">
+				<anchored>
+					<left offset="5" />
+				</anchored>
+				<separator>line_desc</separator>
+				<readonly />
+			</string_columnh>
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="reference_loadout" copy="record_window" />
+	<windowclass name="reference_loadout_header" copy="record_header" />
+	<windowclass name="reference_loadout_main">
+		<margins control="0,0,0,7" />
+		<sheetdata>
+			<anchor_column name="columnanchor" />
+
+			<string_columnh name="description">
+				<anchored>
+					<left offset="5" />
+				</anchored>
+				<separator>line_desc</separator>
+				<readonly />
+			</string_columnh>
+		</sheetdata>
+	</windowclass>
+</root>
