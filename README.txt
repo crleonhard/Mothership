@@ -76,7 +76,7 @@
 * Weapons will automatically be added to the Weapons list on the MAIN tab.
 * Credits are tracked at the bottom of this tab.
 
-####Notes
+#### Notes
 * In addition to notes fields, this tab also provides a list where you can add/remove conditions
 
 ### Combat Tracker
