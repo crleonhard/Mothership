@@ -95,6 +95,7 @@
 * Init: initiative order (if Strict Turn Order house rule enabled)
 * attacks and damage rolls can be dragged onto targets in CT
 	* if the corresponding house rules are enabled, wounds and panic checks resulting from damage will be applied to targets as appropriate
+* NPC entries have an Attacks dropdown from which damage rolls can be made
 
 ### Rolls
 * rollable fields can be double-clicked and are indicated by a die icon
